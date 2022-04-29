@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class AttackPointer : MonoBehaviour
 {
-    [SerializeField] private Transform pointer;
-    [SerializeField] private AttackHitbox attackHitbox;
+    [SerializeField] protected Transform pointer;
+    [SerializeField] protected AttackHitbox attackHitbox;
     void Update()
     {
         InputRotationHandler();
     }
 
-    void InputRotationHandler()
+    protected virtual void InputRotationHandler()
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

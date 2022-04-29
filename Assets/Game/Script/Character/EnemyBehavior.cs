@@ -22,4 +22,13 @@ public class EnemyBehavior : MonoBehaviour
         characterMovement.MoveCharacter(target.transform.position - transform.position, true);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            characterMovement.Attack();
+        }
+        
+    }
+
 }

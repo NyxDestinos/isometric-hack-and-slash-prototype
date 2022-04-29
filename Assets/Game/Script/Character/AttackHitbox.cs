@@ -5,47 +5,78 @@ using UnityEngine;
 
 public class AttackHitbox : MonoBehaviour
 {
+    public enum TargetType
+    {
+        Player, Enemy
+    }
+
+    public TargetType targetType = TargetType.Player;
     public Attack currentAttack;
     public GameObject owner;
-    public List<EnemyCharacter> enemyCharacterList;
+    public List<Character> targetCharacterList;
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.GetComponent<EnemyCharacter>())
+        Character target = null;
+
+        switch (targetType)
+        {
+            case TargetType.Player:
+                target = other.GetComponent<PlayerCharacter>();
+                break;
+            case TargetType.Enemy:
+                target = other.GetComponent<EnemyCharacter>();
+                break;
+            default:
+                break;
+        }
+
+
+        if (target == null)
         {
             return;
         }
 
-        EnemyCharacter enemy = other.GetComponent<EnemyCharacter>();
-
-        enemyCharacterList.Add(enemy);
+        targetCharacterList.Add(target);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.GetComponent<EnemyCharacter>())
+        Character target = null;
+
+        switch (targetType)
+        {
+            case TargetType.Player:
+                target = other.GetComponent<PlayerCharacter>();
+                break;
+            case TargetType.Enemy:
+                target = other.GetComponent<EnemyCharacter>();
+                break;
+            default:
+                break;
+        }
+
+        if (target == null)
         {
             return;
         }
 
-        EnemyCharacter enemy = other.GetComponent<EnemyCharacter>();
-
-        enemyCharacterList.Remove(enemy);
+        targetCharacterList.Remove(target);
     }
 
     public void Attack(Attack attack)
     {
         ClearNullEnemy();
 
-        for (int i = 0; i < enemyCharacterList.Count; i++)
+        for (int i = 0; i < targetCharacterList.Count; i++)
         {
-            EnemyCharacter enemy = enemyCharacterList[i];
+            Character target = targetCharacterList[i];
 
-            enemy.TakeDamage(attack, owner);
+            target.TakeDamage(attack, owner);
         }
     }
 
     void ClearNullEnemy()
     {
-        enemyCharacterList = enemyCharacterList.Where(x => x != null).ToList();
+        targetCharacterList = targetCharacterList.Where(x => x != null).ToList();
     }
 }

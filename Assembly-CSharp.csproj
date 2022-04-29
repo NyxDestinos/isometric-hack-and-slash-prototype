@@ -75,6 +75,9 @@
     <Compile Include="Assets\HealthBar.cs" />
     <Compile Include="Assets\Game\Script\Character\CharacterAttack.cs" />
     <Compile Include="Assets\Game\Script\Utility.cs" />
+    <Compile Include="Assets\Game\Script\Character\CharacterCollideAttack.cs" />
+    <Compile Include="Assets\Game\Script\EnemyAttackPointer.cs" />
+    <Compile Include="Assets\Game\Script\Character\PlayerCharacter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

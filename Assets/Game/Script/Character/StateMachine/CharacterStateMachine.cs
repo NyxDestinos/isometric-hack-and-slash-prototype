@@ -33,6 +33,7 @@ public class CharacterStateMachine : MonoBehaviour
 
     public void SetInterruptState()
     {
+        Debug.Log("Interrupt");
         movementState = MovementState.Interrupt;
     }
 }

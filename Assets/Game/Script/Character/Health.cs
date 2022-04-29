@@ -48,6 +48,11 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(Attack attack, GameObject attacker)
     {
+        if (characterStateMachine.movementState == CharacterStateMachine.MovementState.Dash)
+        {
+            return;
+        }
+
         CurrentHealth -= attack.Damage;
         Knockback(attack, attacker);
 
