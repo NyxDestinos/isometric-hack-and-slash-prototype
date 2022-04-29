@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyCharacter : Character
 {
     [SerializeField] private StatusBar statusBar;
+    //private CapsuleCollider ;
+
 
     protected override void Start()
     {
@@ -17,5 +19,13 @@ public class EnemyCharacter : Character
         base.TakeDamage(attack, attacker);
 
         statusBar.UpdateStatusBar();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+        }
     }
 }

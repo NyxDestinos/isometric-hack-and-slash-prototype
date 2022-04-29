@@ -5,6 +5,8 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     protected Health health;
+    public CharacterAnimationController animationController;
+
 
     protected virtual void Awake()
     {

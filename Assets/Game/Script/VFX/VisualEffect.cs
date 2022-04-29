@@ -12,8 +12,7 @@ public class VisualEffect : MonoBehaviour
 
     public void VisualEffectDirection(Vector3 target)
     {
-        var isometricInputAdjustment = Matrix4x4.Rotate(Quaternion.Euler(0, -45, 0));
-        Vector3 adjustedDirection = isometricInputAdjustment.MultiplyPoint3x4(target);
+        Vector3 adjustedDirection = Utility.IsometricInputAdjustment(target, Quaternion.Euler(0, -45, 0));
 
         spriteRenderer.flipX = adjustedDirection.x < 0;
         spriteRenderer.flipY = adjustedDirection.z < 0;

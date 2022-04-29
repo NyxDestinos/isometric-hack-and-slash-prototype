@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2389439907189819618}
   - component: {fileID: 2389439907189819617}
-  - component: {fileID: 2389439907189819616}
+  - component: {fileID: 5320293749053480155}
   - component: {fileID: 2389439907189819623}
   - component: {fileID: 494649801202426696}
   - component: {fileID: 421748695562783051}
-  - component: {fileID: 2389439907189819619}
+  - component: {fileID: 7130369958568354225}
   - component: {fileID: 683916807164215309}
   - component: {fileID: 5435035216431487829}
   m_Layer: 0
@@ -54,10 +54,10 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &2389439907189819616
-BoxCollider:
+--- !u!136 &5320293749053480155
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -66,9 +66,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.75, y: 1.25, z: 0.75}
-  m_Center: {x: 0.06, y: 0, z: 0}
+  m_Radius: 0.5
+  m_Height: 1.25
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2389439907189819623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babd8817c322ce8478b7a25391e38ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationController: {fileID: 0}
 --- !u!114 &421748695562783051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementState: 0
---- !u!114 &2389439907189819619
+--- !u!114 &7130369958568354225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,11 +117,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2389439907189819621}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53c37cf10ec08ba4ea65c6b859fcc2cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 56532eb7bb6227f44838f65af163faf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  dashSpeed: 10
+  dashSpeed: 15
   dashTime: 0.15
   currentDashTime: 0
   dashCooldown: 0.1
@@ -140,6 +142,8 @@ MonoBehaviour:
   attackPoint: {fileID: 5703823865619558219}
   attackDataIndex: 0
   attackData: {fileID: 11400000, guid: f610456af7031c94eb7ab21c0194b990, type: 2}
+  attackCooldown: 0.5
+  currentAttackCooldown: 0
 --- !u!114 &5435035216431487829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+  knockbackCooldown: 0
 --- !u!1 &2389439907752568147
 GameObject:
   m_ObjectHideFlags: 0

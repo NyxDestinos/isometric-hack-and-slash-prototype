@@ -30,4 +30,9 @@ public class CharacterStateMachine : MonoBehaviour
     {
         movementState = MovementState.Dash;
     }
+
+    public void SetInterruptState()
+    {
+        movementState = MovementState.Interrupt;
+    }
 }

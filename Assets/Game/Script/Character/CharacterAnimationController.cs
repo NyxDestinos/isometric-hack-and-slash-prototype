@@ -46,6 +46,13 @@ public class CharacterAnimationController : MonoBehaviour
         animator.SetBool("isDash", isDash);
     }
 
+    public void OnCharacterInterrupt(Vector3 direction, bool isInterrupt = false)
+    {
+        SpriteMoveDirection(direction);
+
+        animator.SetBool("isInterrupt", isInterrupt);
+    }
+
     private void SpriteMoveDirection(Vector3 direction, bool isMoving = false)
     {
         if (!isMoving)
@@ -57,8 +64,7 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void SpriteAttackDirection(Vector3 target)
     {
-        var isometricInputAdjustment = Matrix4x4.Rotate(Quaternion.Euler(0, -45, 0));
-        Vector3 adjustedDirection = isometricInputAdjustment.MultiplyPoint3x4(target);
+        Vector3 adjustedDirection = Utility.IsometricInputAdjustment(target, Quaternion.Euler(0, -45, 0));
 
         spriteRenderer.flipX = adjustedDirection.x < 0;
     }

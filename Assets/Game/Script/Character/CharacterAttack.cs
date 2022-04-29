@@ -8,17 +8,40 @@ public class CharacterAttack : MonoBehaviour
     [SerializeField] protected int attackDataIndex;
     [SerializeField] protected AttackData attackData;
 
-    public void Attack()
+    [SerializeField] protected float attackCooldown = 0.25f;
+    [SerializeField] protected float currentAttackCooldown;
+
+    private void Update()
     {
+        if (currentAttackCooldown > 0f)
+        {
+            currentAttackCooldown -= Time.deltaTime;
+        }
+    }
+
+    public bool Attack()
+    {
+        if (currentAttackCooldown > 0f)
+        {
+            return false;
+        }
+
         SetNextAttackData();
         CreateVisualEffect();
 
         attackPoint.AttackHitbox.Attack(currentAttack);
+
+        return true;
     }
 
     void SetNextAttackData()
     {
         attackDataIndex = attackData.GetNextAttackIndex(attackDataIndex);
+
+        if (attackDataIndex == 0)
+        {
+            currentAttackCooldown = attackCooldown;
+        }
     }
 
     void CreateVisualEffect()
@@ -32,6 +55,11 @@ public class CharacterAttack : MonoBehaviour
     public int AttackDataIndex
     {
         get { return attackDataIndex; }
+    }
+
+    public bool IsOnAttackCooldown()
+    {
+        return currentAttackCooldown > 0f;
     }
 
     public void ResetAttackIndex()
