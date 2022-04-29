@@ -8,26 +8,33 @@ public class UpdateAttackAnimation : StateMachineBehaviour
     [SerializeField]protected Animator animator;
     protected CharacterAnimationController characterAnimationController;
 
+    protected Character character;
     protected CharacterAttack characterAttack;
     protected CharacterMovement characterMovement;
+    protected CharacterStateMachine characterStateMachine;
     [SerializeField] protected int nextAnimationIndex;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Initialize(animator);
-        characterMovement.IsMovable = false;
 
         characterAttack.Attack();
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        characterStateMachine.SetAttackState();
         ChangeAnimation();
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        characterMovement.IsMovable = true;
+        if (!animator.GetBool("isNextAttacking"))
+        {
+            characterStateMachine.SetIdleState();
+            return;
+        }
+        
     }
 
     void Initialize(Animator animator)
@@ -38,10 +45,11 @@ public class UpdateAttackAnimation : StateMachineBehaviour
         }
         
         this.animator = animator;
-
         characterAnimationController = animator.GetComponent<CharacterAnimationController>();
-        characterAttack = characterAnimationController.Character.GetComponent<CharacterAttack>();
-        characterMovement = characterAnimationController.Character.GetComponent<CharacterMovement>();
+        character = characterAnimationController.Character;
+        characterAttack = character.GetComponent<CharacterAttack>();
+        characterMovement = character.GetComponent<CharacterMovement>();
+        characterStateMachine = character.GetComponent<CharacterStateMachine>();
     }
 
     void ChangeAnimation()

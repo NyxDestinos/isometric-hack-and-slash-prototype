@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public enum MovementStateMachine
-    {
-        Idle, Move, Attack, Dash
-    }
-    public MovementStateMachine StateMachine;
+    
     [SerializeField] private int moveSpeed = 4;
     [SerializeField] private int dashSpeed = 10;
     [SerializeField] private float dashTime = 0.5f;
@@ -18,18 +14,18 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] CharacterAnimationController characterAnimationController;
     CharacterAttack characterAttack;
+    CharacterStateMachine characterStateMachine;
     Rigidbody characterRigidbody;
 
-    bool isMovable;
-    bool isDash;
     Vector3 DashDirection;
 
     private void Awake()
     {
         characterRigidbody = GetComponent<Rigidbody>();
         characterAttack = GetComponent<CharacterAttack>();
+        characterStateMachine = GetComponent<CharacterStateMachine>();
 
-        isMovable = true;
+
     }
 
     private void Update()
@@ -39,30 +35,46 @@ public class CharacterMovement : MonoBehaviour
 
     public void MoveCharacter(Vector3 direction, bool isMoving = false)
     {
-        if (!isMovable)
+        if (!IsMovable())
         {
             return;
         }
+
+        characterAnimationController.OnCharacterMove(direction, isMoving);
+
+        if (!isMoving)
+        {
+            characterStateMachine.SetIdleState();
+            return;
+        }
+
         characterAttack.ResetAttackIndex();
         Move(direction);
 
-        characterAnimationController.OnCharacterMove(direction, isMoving);
+        characterStateMachine.SetMoveState();
+        
     }
 
     public void Attack()
     {
+        if (IsDash())
+        {
+            return;
+        }
+
+        characterStateMachine.SetAttackState();
         characterAnimationController.OnCharacterAttack(true);
         MoveForce();
     }
 
     public void Dash(Vector3 direction, bool isMoving = false)
     {
-        if (isDash)
+        if (IsDash() || !IsMovable())
         {
             return;
         }
 
-        isDash = true;
+        characterStateMachine.SetDashState();
         DashDirection = direction;
         characterAnimationController.OnCharacterDash(direction, true);
     }
@@ -70,7 +82,7 @@ public class CharacterMovement : MonoBehaviour
     public void OnDash()
     {
 
-        if (isDash && currentDashTime < dashTime)
+        if (IsDash() && currentDashTime < dashTime)
         {
             var isometricInputAdjustment = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
             Vector3 adjustedDirection = isometricInputAdjustment.MultiplyPoint3x4(DashDirection);
@@ -83,15 +95,20 @@ public class CharacterMovement : MonoBehaviour
             return;
         }
 
+        if (IsDash() && currentDashTime >= dashTime)
+        {
+            characterStateMachine.SetIdleState();
+            currentDashTime = 0f;
+            characterAnimationController.OnCharacterDash(DashDirection, false);
+            return;
+        }
+
         if (currentDashCooldown < dashCooldown)
         {
             currentDashCooldown += Time.deltaTime;
             return;
         }
-
-        isDash = false;
-        currentDashTime = 0f;
-        characterAnimationController.OnCharacterDash(DashDirection, false);
+        
     }
 
     private void Move(Vector3 direction)
@@ -123,9 +140,15 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public bool IsMovable
+    private bool IsMovable()
     {
-        get { return isMovable; }
-        set { isMovable = value; }
+        return characterStateMachine.movementState == CharacterStateMachine.MovementState.Idle || characterStateMachine.movementState == CharacterStateMachine.MovementState.Move;
     }
+
+    private bool IsDash()
+    {
+        return characterStateMachine.movementState == CharacterStateMachine.MovementState.Dash;
+    }
+
+    
 }

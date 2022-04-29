@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterAnimationController : MonoBehaviour
 {
-    GameObject character;
+    Character character;
     SpriteRenderer spriteRenderer;
     Animator animator;
 
@@ -14,7 +14,7 @@ public class CharacterAnimationController : MonoBehaviour
 
     void Start()
     {
-        character = transform.parent.gameObject;
+        character = transform.parent.GetComponent<Character>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         characterAttack = character.GetComponent<CharacterAttack>();
@@ -63,7 +63,7 @@ public class CharacterAnimationController : MonoBehaviour
         spriteRenderer.flipX = adjustedDirection.x < 0;
     }
 
-    public GameObject Character
+    public Character Character
     {
         get { return character; }
     }

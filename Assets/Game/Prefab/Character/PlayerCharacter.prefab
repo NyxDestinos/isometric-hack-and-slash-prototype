@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2389439907189819617}
   - component: {fileID: 2389439907189819616}
   - component: {fileID: 2389439907189819623}
+  - component: {fileID: 494649801202426696}
+  - component: {fileID: 421748695562783051}
   - component: {fileID: 2389439907189819619}
   - component: {fileID: 683916807164215309}
   - component: {fileID: 5435035216431487829}
@@ -79,6 +81,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fdf284bbea40c47b714f40f15e87b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &494649801202426696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2389439907189819621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: babd8817c322ce8478b7a25391e38ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &421748695562783051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2389439907189819621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d00395ca0cf0344b09f5f8b64297fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementState: 0
 --- !u!114 &2389439907189819619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +122,8 @@ MonoBehaviour:
   dashSpeed: 10
   dashTime: 0.15
   currentDashTime: 0
+  dashCooldown: 0.1
+  currentDashCooldown: 0
   characterAnimationController: {fileID: 2389439907752568159}
 --- !u!114 &683916807164215309
 MonoBehaviour:
