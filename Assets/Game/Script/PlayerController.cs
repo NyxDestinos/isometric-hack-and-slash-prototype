@@ -46,6 +46,11 @@ public class PlayerController : MonoBehaviour
         {
             characterMovement.Attack();
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            characterMovement.Shoot();
+        }
     }
 
     public void GetPlayerDash()

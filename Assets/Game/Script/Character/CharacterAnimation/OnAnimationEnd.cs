@@ -14,5 +14,6 @@ public class OnAnimationEnd : StateMachineBehaviour
 
         animator.SetInteger("animationIndex", 0);
         animator.SetBool("isAttacking", false);
+        animator.SetBool("isShooting", false);
     }
 }

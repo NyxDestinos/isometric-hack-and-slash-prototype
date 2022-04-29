@@ -50,6 +50,17 @@ public class CharacterMovement : MonoBehaviour
         MoveForce();
     }
 
+    public void Shoot()
+    {
+        if (IsDash() || IsInterrupt() || characterAttack.IsOnAttackCooldown())
+        {
+            return;
+        }
+
+        characterStateMachine.SetAttackState();
+        characterAnimationController.OnCharacterShoot(true);
+    }
+
     public void Dash(Vector3 direction, bool isMoving = false)
     {
         if (IsDash() || !IsMovable() || IsInterrupt())

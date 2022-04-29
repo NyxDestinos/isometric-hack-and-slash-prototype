@@ -39,6 +39,17 @@ public class CharacterAnimationController : MonoBehaviour
         animator.SetBool("isAttacking", isAttacking);
     }
 
+    public void OnCharacterShoot(bool isAttacking = false)
+    {
+        SpriteAttackDirection(characterAttack.pointerForwardPosition);
+        if (animator.GetBool("isShooting"))
+        {
+            return;
+        }
+
+        animator.SetBool("isShooting", isAttacking);
+    }
+
     public void OnCharacterDash(Vector3 direction, bool isDash = false)
     {
         SpriteMoveDirection(direction, isDash);

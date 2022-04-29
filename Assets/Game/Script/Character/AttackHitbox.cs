@@ -10,7 +10,7 @@ public class AttackHitbox : MonoBehaviour
         Player, Enemy
     }
 
-    public TargetType targetType = TargetType.Player;
+    public TargetType targetType = TargetType.Enemy;
     public Attack currentAttack;
     public GameObject owner;
     public List<Character> targetCharacterList;

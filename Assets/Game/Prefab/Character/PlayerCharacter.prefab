@@ -142,6 +142,7 @@ MonoBehaviour:
   attackPoint: {fileID: 5703823865619558219}
   attackDataIndex: 0
   attackData: {fileID: 11400000, guid: f610456af7031c94eb7ab21c0194b990, type: 2}
+  projectile: {fileID: 4825782895227351339, guid: 63dfa688c8b2964468202d8fe1813c2d, type: 3}
   attackCooldown: 0.5
   currentAttackCooldown: 0
 --- !u!114 &5435035216431487829

@@ -7,6 +7,7 @@ public class CharacterAttack : MonoBehaviour
     [SerializeField] protected AttackPointer attackPoint;
     [SerializeField] protected int attackDataIndex;
     [SerializeField] protected AttackData attackData;
+    [SerializeField] protected Projectile projectile;
 
     [SerializeField] protected float attackCooldown = 0.25f;
     [SerializeField] protected float currentAttackCooldown;
@@ -34,6 +35,11 @@ public class CharacterAttack : MonoBehaviour
         return true;
     }
 
+    public void Shoot()
+    {
+        CreateProjectile();
+    }
+
     void SetNextAttackData()
     {
         attackDataIndex = attackData.GetNextAttackIndex(attackDataIndex);
@@ -50,6 +56,12 @@ public class CharacterAttack : MonoBehaviour
         VisualEffect visualEffect = gameObject.GetComponent<VisualEffect>();
 
         visualEffect.VisualEffectDirection(pointerForwardPosition);
+    }
+
+    void CreateProjectile()
+    {
+        GameObject gameObject = Instantiate(projectile.gameObject, pointerPosition, AttackPointer.transform.rotation);
+        Projectile visualEffect = gameObject.GetComponent<Projectile>();
     }
 
     public int AttackDataIndex

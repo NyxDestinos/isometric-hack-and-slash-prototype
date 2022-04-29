@@ -54,14 +54,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\StatusBar.cs" />
+    <Compile Include="Assets\Game\Script\Utility.cs" />
     <Compile Include="Assets\Game\Script\Character\Movement\EnemyCharacterMovement.cs" />
     <Compile Include="Assets\Game\Script\Character\EnemyCharacter.cs" />
     <Compile Include="Assets\Game\Script\Character\Movement\CharacterMovement.cs" />
     <Compile Include="Assets\Game\Script\Character\Health.cs" />
+    <Compile Include="Assets\Projectile.cs" />
     <Compile Include="Assets\Game\Script\Character\CharacterAnimationController.cs" />
     <Compile Include="Assets\Game\Script\VFX\VisualEffect.cs" />
     <Compile Include="Assets\Game\Script\Character\CharacterAnimation\UpdateAttackAnimation.cs" />
     <Compile Include="Assets\Game\Script\Character\AttackData\Attack.cs" />
+    <Compile Include="Assets\Game\Script\Character\PlayerCharacter.cs" />
+    <Compile Include="Assets\Game\Script\EnemyAttackPointer.cs" />
     <Compile Include="Assets\Game\Script\AttackPointer.cs" />
     <Compile Include="Assets\Game\Script\Character\Movement\PlayerCharacterMovement.cs" />
     <Compile Include="Assets\OnVisualEffectEnd.cs" />
@@ -69,15 +73,15 @@
     <Compile Include="Assets\Game\Script\Character\StateMachine\CharacterStateMachine.cs" />
     <Compile Include="Assets\Game\Script\Character\AttackData\AttackData.cs" />
     <Compile Include="Assets\Game\Script\Character\AttackHitbox.cs" />
+    <Compile Include="Assets\Game\Script\Character\CharacterCollideAttack.cs" />
     <Compile Include="Assets\Game\Script\Character\Character.cs" />
+    <Compile Include="Assets\OnShootAnimationEnd.cs" />
     <Compile Include="Assets\Game\Script\Character\CharacterAnimation\OnAnimationEnd.cs" />
+    <Compile Include="Assets\Obstable.cs" />
     <Compile Include="Assets\Game\Script\Character\EnemyBehavior.cs" />
     <Compile Include="Assets\HealthBar.cs" />
     <Compile Include="Assets\Game\Script\Character\CharacterAttack.cs" />
-    <Compile Include="Assets\Game\Script\Utility.cs" />
-    <Compile Include="Assets\Game\Script\Character\CharacterCollideAttack.cs" />
-    <Compile Include="Assets\Game\Script\EnemyAttackPointer.cs" />
-    <Compile Include="Assets\Game\Script\Character\PlayerCharacter.cs" />
+    <Compile Include="Assets\Game\Script\Skill.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
