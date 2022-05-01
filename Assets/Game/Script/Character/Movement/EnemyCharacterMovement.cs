@@ -13,6 +13,8 @@ public class EnemyCharacterMovement : CharacterMovement
         base.Awake();
         agent = GetComponent<NavMeshAgent>();
         behavior = GetComponent<EnemyBehavior>();
+
+        agent.speed = moveSpeed;
     }
 
     public override void MoveCharacter(Vector3 direction, bool isMoving = false)
@@ -26,16 +28,17 @@ public class EnemyCharacterMovement : CharacterMovement
             return;
         }
 
+        agent.enabled = true;
         characterAnimationController.OnCharacterMove(direction, isMoving);
 
         if (!isMoving)
         {
+            agent.SetDestination(transform.position);
             characterStateMachine.SetIdleState();
             return;
         }
 
         characterAttack.ResetAttackIndex();
-        agent.enabled = true;
         agent.SetDestination(behavior.target.transform.position);
         characterStateMachine.SetMoveState();
 

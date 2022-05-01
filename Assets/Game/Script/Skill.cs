@@ -2,17 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill : MonoBehaviour
+public class Skill: ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] public string skillName;
+    [SerializeField] public Color skillColor = Color.white;
+    public virtual void ApplyOnHit(Character target)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void ApplyOnAttack(Character attacker, List<Character> targetList)
     {
-        
+
+    }
+
+    public virtual void ApplyOnAttackGlobal(Character attacker, List<Character> targetList)
+    {
+
+    }
+
+    public virtual void ApplyOnProjectileHit(Projectile projectile, Character character)
+    {
+
+    }
+
+    public virtual void ApplyOnProjectileHitGlobal(Projectile projectile, List<Character> targetList)
+    {
+
+    }
+
+    public virtual void ApplyOnDash(Character attacker, float dashAreaOfEffect)
+    {
+
     }
 }

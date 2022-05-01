@@ -17,4 +17,14 @@ public class VisualEffect : MonoBehaviour
         spriteRenderer.flipX = adjustedDirection.x < 0;
         spriteRenderer.flipY = adjustedDirection.z < 0;
     }
+
+    public void SetVisualEffectColor(Skill skill)
+    {
+        if (skill == null)
+        {
+            return;
+        }
+
+        spriteRenderer.color = skill.skillColor;
+    }
 }

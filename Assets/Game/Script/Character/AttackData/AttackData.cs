@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "New AttackData", menuName = "ScriptableObject/AttackData/Attack")]
+[CreateAssetMenu(fileName = "New Attack Data", menuName = "ScriptableObject/AttackData/Attack")]
 public class AttackData : ScriptableObject
 {
-    [SerializeField] List<Attack> attackList = new List<Attack>();
-    [SerializeField] VisualEffect visualEffect;
+    [SerializeField] private List<Attack> attackList = new List<Attack>();
+    [SerializeField] private VisualEffect visualEffect;
 
     public Attack GetAttack(int index)
     {
@@ -21,9 +21,9 @@ public class AttackData : ScriptableObject
 
     public int GetNextAttackIndex(int index)
     {
-        int attackDataIndex = (index + 1) % attackList.Count;
+        int nextAttackIndex = (index + 1) % attackList.Count;
 
-        return attackDataIndex;
+        return nextAttackIndex;
     }
 
     public VisualEffect VisualEffect

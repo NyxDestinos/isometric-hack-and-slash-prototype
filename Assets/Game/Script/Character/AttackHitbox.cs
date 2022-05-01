@@ -63,9 +63,33 @@ public class AttackHitbox : MonoBehaviour
         targetCharacterList.Remove(target);
     }
 
-    public void Attack(Attack attack)
+    public void Attack(Attack attack, Skill skill)
     {
         ClearNullEnemy();
+
+        if (skill != null)
+        {
+            skill.ApplyOnAttackGlobal(owner.GetComponent<Character>(), targetType == TargetType.Enemy ? WaveManager.instance.enemyList : targetCharacterList);
+            skill.ApplyOnAttack(owner.GetComponent<Character>(), targetCharacterList);
+        }
+        
+
+        ApplyDamage(attack, skill);
+        ApplyOnHit(attack, skill);
+    }
+
+    void ClearNullEnemy()
+    {
+        targetCharacterList = targetCharacterList.Where(x => x != null).ToList();
+    }
+
+
+    void ApplyDamage(Attack attack, Skill skill)
+    {
+        if (attack == null)
+        {
+            return;
+        }
 
         for (int i = 0; i < targetCharacterList.Count; i++)
         {
@@ -74,9 +98,23 @@ public class AttackHitbox : MonoBehaviour
             target.TakeDamage(attack, owner);
         }
     }
-
-    void ClearNullEnemy()
+    void ApplyOnHit(Attack attack, Skill skill)
     {
-        targetCharacterList = targetCharacterList.Where(x => x != null).ToList();
+        if (attack == null)
+        {
+            return;
+        }
+
+        if (skill == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < targetCharacterList.Count; i++)
+        {
+            Character target = targetCharacterList[i];
+
+            skill.ApplyOnHit(target);
+        }
     }
 }

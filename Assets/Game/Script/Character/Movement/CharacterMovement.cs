@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     
-    [SerializeField] protected int moveSpeed = 4;
+    [SerializeField] protected float moveSpeed = 4;
     [SerializeField] protected int dashSpeed = 10;
     [SerializeField] protected float dashTime = 0.5f;
     [SerializeField] protected float currentDashTime = 0f;
@@ -29,8 +29,7 @@ public class CharacterMovement : MonoBehaviour
 
     protected virtual void Update()
     {
-        
-        OnDash();
+        UpdateDash();
     }
 
     public virtual void MoveCharacter(Vector3 direction, bool isMoving = false)
@@ -40,7 +39,7 @@ public class CharacterMovement : MonoBehaviour
 
     public void Attack()
     {
-        if (IsDash() || IsInterrupt() || characterAttack.IsOnAttackCooldown())
+        if (isAbleToAttack)
         {
             return;
         }
@@ -63,17 +62,18 @@ public class CharacterMovement : MonoBehaviour
 
     public void Dash(Vector3 direction, bool isMoving = false)
     {
-        if (IsDash() || !IsMovable() || IsInterrupt())
+        if (IsDash() || !IsMovable() || IsInterrupt() || currentDashCooldown >= 0f)
         {
             return;
         }
 
+        characterAttack.DashEffect();
         characterStateMachine.SetDashState();
         DashDirection = direction;
         characterAnimationController.OnCharacterDash(direction, true);
     }
 
-    public void OnDash()
+    void UpdateDash()
     {
 
         if (IsDash() && currentDashTime < dashTime)
@@ -92,13 +92,14 @@ public class CharacterMovement : MonoBehaviour
         {
             characterStateMachine.SetIdleState();
             currentDashTime = 0f;
+            currentDashCooldown = dashCooldown;
             characterAnimationController.OnCharacterDash(DashDirection, false);
             return;
         }
 
-        if (currentDashCooldown < dashCooldown)
+        if (currentDashCooldown >= 0f)
         {
-            currentDashCooldown += Time.deltaTime;
+            currentDashCooldown -= Time.deltaTime;
             return;
         }
         
@@ -116,18 +117,26 @@ public class CharacterMovement : MonoBehaviour
         Attack attack = characterAttack.currentAttack;
 
         Vector3 adjustedDirection = Utility.IsometricInputAdjustment(direction, Quaternion.Euler(0, 45, 0));
-        adjustedDirection *= attack.forwardForce;
+        adjustedDirection *= attack.ForwardForce;
 
         characterRigidbody.MovePosition(characterRigidbody.position + adjustedDirection * moveSpeed * Time.deltaTime);
     }
 
 
 
-    public int MoveSpeed
+    public float MoveSpeed
     {
         get
         {
             return moveSpeed;
+        }
+    }
+
+    protected bool isAbleToAttack
+    {
+        get
+        {
+            return IsDash() || IsInterrupt() || characterAttack.IsOnAttackCooldown();
         }
     }
 

@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 7130369958568354225}
   - component: {fileID: 683916807164215309}
   - component: {fileID: 5435035216431487829}
+  - component: {fileID: 8547330974069745852}
+  - component: {fileID: 3760339972122411520}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -142,6 +144,7 @@ MonoBehaviour:
   attackPoint: {fileID: 5703823865619558219}
   attackDataIndex: 0
   attackData: {fileID: 11400000, guid: f610456af7031c94eb7ab21c0194b990, type: 2}
+  characterSkill: {fileID: 3760339972122411520}
   projectile: {fileID: 4825782895227351339, guid: 63dfa688c8b2964468202d8fe1813c2d, type: 3}
   attackCooldown: 0.5
   currentAttackCooldown: 0
@@ -160,6 +163,41 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   knockbackCooldown: 0.4
+  popup: {fileID: 5150977959929374846, guid: f30c663b578d62b44a1343bd83391b02, type: 3}
+--- !u!114 &8547330974069745852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2389439907189819621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d7e8ecb2ba53b4d9b16d0509906268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusDataList:
+  - status: {fileID: 0}
+    duration: 0
+    stackAmount: 0
+    ownerCharacter: {fileID: 0}
+  currentTimeTick: 0
+  timeTick: 1
+--- !u!114 &3760339972122411520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2389439907189819621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279f0dfdb1dd6694ba4f23a436dd5579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSkill: {fileID: 0}
+  projectileSkill: {fileID: 0}
+  dashSkill: {fileID: 0}
 --- !u!1 &2389439907752568147
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,8 +54,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\StatusBar.cs" />
+    <Compile Include="Assets\Game\Script\Skill_Thunder.cs" />
     <Compile Include="Assets\Game\Script\Utility.cs" />
+    <Compile Include="Assets\Game\Script\Status_Burn.cs" />
     <Compile Include="Assets\Game\Script\Character\Movement\EnemyCharacterMovement.cs" />
+    <Compile Include="Assets\Game\Script\StatusContainer.cs" />
+    <Compile Include="Assets\OnDashAnimation.cs" />
+    <Compile Include="Assets\WaveManager.cs" />
     <Compile Include="Assets\Game\Script\Character\EnemyCharacter.cs" />
     <Compile Include="Assets\Game\Script\Character\Movement\CharacterMovement.cs" />
     <Compile Include="Assets\Game\Script\Character\Health.cs" />
@@ -63,8 +68,10 @@
     <Compile Include="Assets\Game\Script\Character\CharacterAnimationController.cs" />
     <Compile Include="Assets\Game\Script\VFX\VisualEffect.cs" />
     <Compile Include="Assets\Game\Script\Character\CharacterAnimation\UpdateAttackAnimation.cs" />
+    <Compile Include="Assets\PlayerUI.cs" />
     <Compile Include="Assets\Game\Script\Character\AttackData\Attack.cs" />
     <Compile Include="Assets\Game\Script\Character\PlayerCharacter.cs" />
+    <Compile Include="Assets\Game\Script\StatusData.cs" />
     <Compile Include="Assets\Game\Script\EnemyAttackPointer.cs" />
     <Compile Include="Assets\Game\Script\AttackPointer.cs" />
     <Compile Include="Assets\Game\Script\Character\Movement\PlayerCharacterMovement.cs" />
@@ -73,15 +80,42 @@
     <Compile Include="Assets\Game\Script\Character\StateMachine\CharacterStateMachine.cs" />
     <Compile Include="Assets\Game\Script\Character\AttackData\AttackData.cs" />
     <Compile Include="Assets\Game\Script\Character\AttackHitbox.cs" />
+    <Compile Include="Assets\Game\Script\Status.cs" />
     <Compile Include="Assets\Game\Script\Character\CharacterCollideAttack.cs" />
+    <Compile Include="Assets\Game\Script\CharacterSkill.cs" />
     <Compile Include="Assets\Game\Script\Character\Character.cs" />
+    <Compile Include="Assets\Game\Script\Skill.cs" />
+    <Compile Include="Assets\Game\Script\Popup.cs" />
     <Compile Include="Assets\OnShootAnimationEnd.cs" />
-    <Compile Include="Assets\Game\Script\Character\CharacterAnimation\OnAnimationEnd.cs" />
+    <Compile Include="Assets\Game\Script\Character\CharacterAnimation\OnAttackAnimationEnd.cs" />
+    <Compile Include="Assets\Game\Script\Skill_Fire.cs" />
     <Compile Include="Assets\Obstable.cs" />
     <Compile Include="Assets\Game\Script\Character\EnemyBehavior.cs" />
     <Compile Include="Assets\HealthBar.cs" />
     <Compile Include="Assets\Game\Script\Character\CharacterAttack.cs" />
-    <Compile Include="Assets\Game\Script\Skill.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

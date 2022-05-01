@@ -21,7 +21,7 @@ public class UpdateAttackAnimation : StateMachineBehaviour
         characterAttack.Attack();
     }
 
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         characterStateMachine.SetAttackState();
         ChangeAnimation();
@@ -68,6 +68,7 @@ public class UpdateAttackAnimation : StateMachineBehaviour
         {
             return;
         }
+
         animator.SetInteger("animationIndex", nextAnimationIndex);
     }
 }

@@ -7,10 +7,23 @@ public class CharacterAttack : MonoBehaviour
     [SerializeField] protected AttackPointer attackPoint;
     [SerializeField] protected int attackDataIndex;
     [SerializeField] protected AttackData attackData;
+    [SerializeField] protected CharacterSkill characterSkill;
     [SerializeField] protected Projectile projectile;
+
+    [SerializeField] protected float DashAreaOfEffect = 2f;
 
     [SerializeField] protected float attackCooldown = 0.25f;
     [SerializeField] protected float currentAttackCooldown;
+
+    CharacterStateMachine characterStateMachine;
+    Character character;
+
+    private void Start()
+    {
+        character = GetComponent<Character>();
+        characterSkill = GetComponent<CharacterSkill>();
+        characterStateMachine = GetComponent<CharacterStateMachine>();
+    }
 
     private void Update()
     {
@@ -30,7 +43,7 @@ public class CharacterAttack : MonoBehaviour
         SetNextAttackData();
         CreateVisualEffect();
 
-        attackPoint.AttackHitbox.Attack(currentAttack);
+        attackPoint.AttackHitbox.Attack(currentAttack, characterSkill.attackSkill);
 
         return true;
     }
@@ -38,6 +51,21 @@ public class CharacterAttack : MonoBehaviour
     public void Shoot()
     {
         CreateProjectile();
+    }
+
+    public void DashEffect()
+    {
+        characterSkill.dashSkill.ApplyOnDash(character, DashAreaOfEffect);
+    }
+
+    public void DashCollideEffect(Character target)
+    {
+        if (characterStateMachine.movementState != CharacterStateMachine.MovementState.Dash)
+        {
+            return;
+        }
+
+        characterSkill.dashSkill.ApplyOnHit(target);
     }
 
     void SetNextAttackData()
@@ -56,12 +84,34 @@ public class CharacterAttack : MonoBehaviour
         VisualEffect visualEffect = gameObject.GetComponent<VisualEffect>();
 
         visualEffect.VisualEffectDirection(pointerForwardPosition);
+        visualEffect.SetVisualEffectColor(characterSkill.attackSkill);
     }
 
     void CreateProjectile()
     {
         GameObject gameObject = Instantiate(projectile.gameObject, pointerPosition, AttackPointer.transform.rotation);
-        Projectile visualEffect = gameObject.GetComponent<Projectile>();
+        Projectile _projectile = gameObject.GetComponent<Projectile>();
+
+        _projectile.AttachSkill(characterSkill.projectileSkill);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        var target = collision.gameObject.GetComponent<EnemyCharacter>();
+
+        if (collision.gameObject.tag == gameObject.tag)
+        {
+            return;
+        }
+
+        if (target == null)
+        {
+            return;
+        }
+
+        DashCollideEffect(target);
+
+
     }
 
     public int AttackDataIndex

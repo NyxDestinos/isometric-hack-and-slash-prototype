@@ -16,6 +16,8 @@ public class Health : MonoBehaviour
     CharacterAnimationController characterAnimationController;
     Rigidbody rb;
 
+    [SerializeField] Popup popup;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,11 +55,43 @@ public class Health : MonoBehaviour
             return;
         }
 
+        GameObject dmgPop = Instantiate(popup.gameObject, transform.position + new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(1.3f, 1.5f), 0.1f), popup.transform.rotation);
+        dmgPop.GetComponent<Popup>().SetDamageText(attack.Damage);
+
         CurrentHealth -= attack.Damage;
         Knockback(attack, attacker);
 
         if (isDead)
         {
+            character.Dead();
+            Destroy(gameObject);
+        }
+    }
+
+    public virtual void TakeDamage(int damage, StatusData statusData)
+    {
+        CurrentHealth -= damage;
+
+        GameObject dmgPop = Instantiate(popup.gameObject, transform.position + new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(1.3f, 1.5f), 0.1f), popup.transform.rotation);
+        dmgPop.GetComponent<Popup>().SetDamageText(damage, 2, statusData.status.statusColor);
+
+        if (isDead)
+        {
+            character.Dead();
+            Destroy(gameObject);
+        }
+    }
+
+    public virtual void TakeDamage(int damage)
+    {
+        CurrentHealth -= damage;
+
+        GameObject dmgPop = Instantiate(popup.gameObject, transform.position + new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(1.3f, 1.5f), 0.1f), popup.transform.rotation);
+        dmgPop.GetComponent<Popup>().SetDamageText(damage, 2);
+
+        if (isDead)
+        {
+            character.Dead();
             Destroy(gameObject);
         }
     }
@@ -65,7 +99,7 @@ public class Health : MonoBehaviour
     public void Knockback(Attack attack, GameObject attacker)
     {
         Vector3 difference = gameObject.transform.position - attacker.transform.position;
-        Vector3 finalDiff = difference.normalized * attack.knockbackForce * rb.mass;
+        Vector3 finalDiff = difference.normalized * attack.KnockbackForce * rb.mass;
         rb.AddForce(finalDiff, ForceMode.Impulse);
 
         characterStateMachine.SetInterruptState();

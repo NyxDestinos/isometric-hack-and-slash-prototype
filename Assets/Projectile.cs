@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     }
 
     [SerializeField] protected Attack attack;
+    [SerializeField] protected Skill skill;
     public TargetType targetType = TargetType.Enemy;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float lifeTime = 5f;
@@ -25,7 +26,7 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         body.AddRelativeForce(Vector3.forward * speed, ForceMode.Impulse);
-        StartCoroutine(OutOfLifetime());
+        Destroy(gameObject, lifeTime);
     }
 
     private void Update()
@@ -33,16 +34,14 @@ public class Projectile : MonoBehaviour
         Move();
     }
 
+    public void AttachSkill(Skill _skill)
+    {
+        skill = _skill;
+    }
+
     private void Move()
     {
         
-    }
-
-    IEnumerator OutOfLifetime()
-    {
-        yield return new WaitForSeconds(lifeTime);
-
-        Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -71,6 +70,14 @@ public class Projectile : MonoBehaviour
         }
 
         target.TakeDamage(attack, gameObject);
+
+        if (skill != null)
+        {
+            skill.ApplyOnHit(target);
+            skill.ApplyOnProjectileHit(this, target);
+            skill.ApplyOnProjectileHitGlobal(this, WaveManager.instance.enemyList);
+        }
+        
         Destroy(gameObject);
     }
 }

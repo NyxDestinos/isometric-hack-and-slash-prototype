@@ -5,12 +5,23 @@ using UnityEngine;
 [System.Serializable]
 public class Attack
 {
-    public int damage;
-    public float forwardForce;
-    public float knockbackForce;
+    [SerializeField] private int damage;
+    [SerializeField] private float forwardForce;
+    [SerializeField] private float knockbackForce;
 
     public int Damage
     {
         get { return damage; }
     }
+
+    public float ForwardForce
+    {
+        get { return forwardForce; }
+    }
+
+    public float KnockbackForce
+    {
+        get { return knockbackForce; }
+    }
+
 }

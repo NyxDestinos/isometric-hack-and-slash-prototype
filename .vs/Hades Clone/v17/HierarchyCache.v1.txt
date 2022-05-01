@@ -1,0 +1,589 @@
+﻿++Solution 'Hades Clone' ‎(1 of 1 project)
+i:{00000000-0000-0000-0000-000000000000}:Hades Clone.sln
+++Assembly-CSharp
+i:{00000000-0000-0000-0000-000000000000}:Assembly-CSharp
+++References
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Assets
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\
+++Game
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\
+++Script
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\
+++Character
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\
+++AttackData
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackdata\
+++CharacterAnimation
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characteranimation\
+++Movement
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\
+++StateMachine
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\statemachine\
+++AttackHitbox.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackhitbox.cs
+++Character.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\character.cs
+++CharacterAnimationController.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characteranimationcontroller.cs
+++CharacterAttack.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characterattack.cs
+++CharacterCollideAttack.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\charactercollideattack.cs
+++EnemyBehavior.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\enemybehavior.cs
+++EnemyCharacter.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\enemycharacter.cs
+++Health.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\health.cs
+++PlayerCharacter.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\playercharacter.cs
+++VFX
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\vfx\
+++AttackPointer.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\attackpointer.cs
+++CharacterSkill.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\characterskill.cs
+++EnemyAttackPointer.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\enemyattackpointer.cs
+++PlayerController.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\playercontroller.cs
+++Popup.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\popup.cs
+++Skill.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\skill.cs
+++Skill_Fire.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\skill_fire.cs
+++Skill_Thunder.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\skill_thunder.cs
+++Status.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\status.cs
+++Status_Burn.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\status_burn.cs
+++StatusContainer.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\statuscontainer.cs
+++StatusData.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\statusdata.cs
+++Utility.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\utility.cs
+++TextMesh Pro
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\
+++HealthBar.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\healthbar.cs
+++Obstable.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\obstable.cs
+++OnShootAnimationEnd.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\onshootanimationend.cs
+++OnVisualEffectEnd.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\onvisualeffectend.cs
+++Projectile.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\projectile.cs
+++StatusBar.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\statusbar.cs
+++WaveManager.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\wavemanager.cs
+++Cinemachine
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++com.unity.cinemachine.editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Microsoft.Win32.Primitives
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++mscorlib
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++netstandard
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Newtonsoft.Json
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.AppContext
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Collections
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Collections.Concurrent
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Collections.NonGeneric
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Collections.Specialized
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.ComponentModel
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.ComponentModel.Composition
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.ComponentModel.EventBasedAsync
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.ComponentModel.Primitives
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.ComponentModel.TypeConverter
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Console
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Core
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Data
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Data.Common
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Diagnostics.Contracts
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Diagnostics.Debug
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Diagnostics.FileVersionInfo
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Diagnostics.Process
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Diagnostics.StackTrace
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Diagnostics.TextWriterTraceListener
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Diagnostics.Tools
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Diagnostics.TraceSource
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Diagnostics.Tracing
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Drawing
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Drawing.Primitives
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Dynamic.Runtime
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Globalization
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Globalization.Calendars
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Globalization.Extensions
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.Compression
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.Compression.FileSystem
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.Compression.ZipFile
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.FileSystem
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.FileSystem.DriveInfo
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.FileSystem.Primitives
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.FileSystem.Watcher
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.IsolatedStorage
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.MemoryMappedFiles
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.Pipes
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.IO.UnmanagedMemoryStream
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Linq
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Linq.Expressions
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Linq.Parallel
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Linq.Queryable
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.Http
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.NameResolution
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.NetworkInformation
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.Ping
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.Primitives
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.Requests
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.Security
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.Sockets
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.WebHeaderCollection
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.WebSockets
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Net.WebSockets.Client
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Numerics
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Numerics.Vectors
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.ObjectModel
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Reflection
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Reflection.Extensions
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Reflection.Primitives
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Resources.Reader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Resources.ResourceManager
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Resources.Writer
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.CompilerServices.VisualC
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.Extensions
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.Handles
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.InteropServices
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.InteropServices.RuntimeInformation
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.InteropServices.WindowsRuntime
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.Numerics
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.Serialization
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.Serialization.Formatters
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.Serialization.Json
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.Serialization.Primitives
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Runtime.Serialization.Xml
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Security.Claims
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Security.Cryptography.Algorithms
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Security.Cryptography.Csp
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Security.Cryptography.Encoding
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Security.Cryptography.Primitives
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Security.Cryptography.X509Certificates
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Security.Principal
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Security.SecureString
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.ServiceModel.Web
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Text.Encoding
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Text.Encoding.Extensions
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Text.RegularExpressions
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Threading
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Threading.Overlapped
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Threading.Tasks
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Threading.Tasks.Parallel
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Threading.Thread
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Threading.ThreadPool
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Threading.Timer
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Transactions
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.ValueTuple
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Web
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Windows
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Xml
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Xml.Linq
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Xml.ReaderWriter
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Xml.Serialization
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Xml.XDocument
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Xml.XmlDocument
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Xml.XmlSerializer
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Xml.XPath
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++System.Xml.XPath.XDocument
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.2D.Sprite.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.Mathematics
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.Mathematics.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.PlasticSCM.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.RenderPipeline.Universal.ShaderLibrary
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.RenderPipelines.Core.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.RenderPipelines.Core.Runtime
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.RenderPipelines.Core.ShaderLibrary
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.RenderPipelines.Universal.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.RenderPipelines.Universal.Runtime
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.RenderPipelines.Universal.Shaders
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.Rider.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.Searcher.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.ShaderGraph.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.TextMeshPro
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.TextMeshPro.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.Timeline
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.Timeline.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.VisualStudio.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Unity.VSCode.Editor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEditor
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEditor.CoreModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEditor.GraphViewModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEditor.PackageManagerUIModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEditor.SceneTemplateModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEditor.UI
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEditor.UIElementsModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEditor.UIElementsSamplesModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEditor.UIServiceModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEditor.UnityConnectModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.AccessibilityModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.AIModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.AndroidJNIModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.AnimationModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.ARModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.AssetBundleModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.AudioModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.ClothModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.ClusterInputModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.ClusterRendererModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.CoreModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.CrashReportingModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.DirectorModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.DSPGraphModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.GameCenterModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.GIModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.GridModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.HotReloadModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.ImageConversionModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.IMGUIModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.InputLegacyModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.InputModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.JSONSerializeModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.LocalizationModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.ParticleSystemModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.PerformanceReportingModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.Physics2DModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.PhysicsModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.ProfilerModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.ScreenCaptureModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.SharedInternalsModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.SpriteMaskModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.SpriteShapeModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.StreamingModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.SubstanceModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.SubsystemsModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.TerrainModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.TerrainPhysicsModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.TextCoreModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.TextRenderingModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.TilemapModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.TLSModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UI
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UIElementsModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UIElementsNativeModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UIModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UmbraModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UNETModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UnityAnalyticsModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UnityConnectModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UnityCurlModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UnityTestProtocolModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UnityWebRequestAssetBundleModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UnityWebRequestAudioModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UnityWebRequestModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UnityWebRequestTextureModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.UnityWebRequestWWWModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.VehiclesModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.VFXModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.VideoModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.VirtualTexturingModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.VRModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.WindModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++UnityEngine.XRModule
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
+++Attack.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackdata\attack.cs
+++AttackData.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackdata\attackdata.cs
+++OnAnimationEnd.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characteranimation\onanimationend.cs
+++UpdateAttackAnimation.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characteranimation\updateattackanimation.cs
+++CharacterMovement.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\charactermovement.cs
+++EnemyCharacterMovement.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\enemycharactermovement.cs
+++PlayerCharacterMovement.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\playercharactermovement.cs
+++CharacterStateMachine.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\statemachine\characterstatemachine.cs
+++VisualEffect.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\vfx\visualeffect.cs
+++Fonts
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\fonts\
+++Resources
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\resources\
+++Shaders
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\
+++Sprites
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\sprites\
+++LiberationSans - OFL.txt
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\fonts\liberationsans - ofl.txt
+++LineBreaking Following Characters.txt
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\resources\linebreaking following characters.txt
+++LineBreaking Leading Characters.txt
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\resources\linebreaking leading characters.txt
+++TMP_Bitmap-Custom-Atlas.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_bitmap-custom-atlas.shader
+++TMP_Bitmap-Mobile.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_bitmap-mobile.shader
+++TMP_Bitmap.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_bitmap.shader
+++TMP_SDF-Mobile Masking.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_sdf-mobile masking.shader
+++TMP_SDF-Mobile Overlay.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_sdf-mobile overlay.shader
+++TMP_SDF-Mobile SSD.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_sdf-mobile ssd.shader
+++TMP_SDF-Mobile.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_sdf-mobile.shader
+++TMP_SDF-Surface-Mobile.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_sdf-surface-mobile.shader
+++TMP_SDF-Surface.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_sdf-surface.shader
+++TMP_SDF Overlay.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_sdf overlay.shader
+++TMP_SDF SSD.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_sdf ssd.shader
+++TMP_SDF.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_sdf.shader
+++TMP_Sprite.shader
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmp_sprite.shader
+++TMPro.cginc
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmpro.cginc
+++TMPro_Mobile.cginc
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmpro_mobile.cginc
+++TMPro_Properties.cginc
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmpro_properties.cginc
+++TMPro_Surface.cginc
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\tmpro_surface.cginc
+++EmojiOne Attribution.txt
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\sprites\emojione attribution.txt
+++Assembly-CSharp (unloaded)
+++Solution 'Hades Clone' ‎(0 of 1 project)
+++PlayerUI.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\playerui.cs
+++OnDash.cs
+++OnDashAnimation.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\ondashanimation.cs

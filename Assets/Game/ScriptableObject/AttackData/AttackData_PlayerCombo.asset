@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: AttackData_PlayerCombo
   m_EditorClassIdentifier: 
   attackList:
-  - damage: 5
-    forwardForce: 5
-    knockbackForce: 4
-  - damage: 5
-    forwardForce: 5
-    knockbackForce: 4
-  - damage: 5
+  - damage: 10
     forwardForce: 5
     knockbackForce: 4
   - damage: 10
+    forwardForce: 5
+    knockbackForce: 4
+  - damage: 10
+    forwardForce: 5
+    knockbackForce: 4
+  - damage: 20
     forwardForce: 10
     knockbackForce: 8
   visualEffect: {fileID: 2373981568069428874, guid: 9e0b1f31c52d919429d95e30879ab803, type: 3}
