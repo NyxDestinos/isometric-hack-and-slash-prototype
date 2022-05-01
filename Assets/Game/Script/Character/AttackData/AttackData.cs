@@ -2,32 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-[CreateAssetMenu(fileName = "New Attack Data", menuName = "ScriptableObject/AttackData/Attack")]
-public class AttackData : ScriptableObject
-{
-    [SerializeField] private List<Attack> attackList = new List<Attack>();
-    [SerializeField] private VisualEffect visualEffect;
+using Prototype.Objects;
 
-    public Attack GetAttack(int index)
+namespace Prototype.Datas
+{
+    [System.Serializable]
+    [CreateAssetMenu(fileName = "New Attack Data", menuName = "ScriptableObject/AttackData/Attack")]
+    public class AttackData : ScriptableObject
     {
-        if (index >= attackList.Count)
+        [SerializeField] private List<Attack> attackList = new List<Attack>();
+        [SerializeField] private VisualEffect visualEffect;
+
+        public Attack GetAttack(int index)
         {
-            return null;
+            if (index >= attackList.Count)
+            {
+                return null;
+            }
+
+            return attackList[index];
         }
 
-        return attackList[index];
-    }
+        public int GetNextAttackIndex(int index)
+        {
+            int nextAttackIndex = (index + 1) % attackList.Count;
 
-    public int GetNextAttackIndex(int index)
-    {
-        int nextAttackIndex = (index + 1) % attackList.Count;
+            return nextAttackIndex;
+        }
 
-        return nextAttackIndex;
-    }
-
-    public VisualEffect VisualEffect
-    {
-        get { return visualEffect; }
+        public VisualEffect VisualEffect
+        {
+            get { return visualEffect; }
+        }
     }
 }
+

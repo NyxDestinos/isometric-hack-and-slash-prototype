@@ -2,26 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Attack
+namespace Prototype.Datas
 {
-    [SerializeField] private int damage;
-    [SerializeField] private float forwardForce;
-    [SerializeField] private float knockbackForce;
-
-    public int Damage
+    [System.Serializable]
+    public class Attack
     {
-        get { return damage; }
-    }
+        [SerializeField] private int damage;
+        [SerializeField] private float forwardForce;
+        [SerializeField] private float knockbackForce;
 
-    public float ForwardForce
-    {
-        get { return forwardForce; }
-    }
+        public int Damage
+        {
+            get { return damage; }
+        }
 
-    public float KnockbackForce
-    {
-        get { return knockbackForce; }
-    }
+        public float ForwardForce
+        {
+            get { return forwardForce; }
+        }
 
+        public float KnockbackForce
+        {
+            get { return knockbackForce; }
+        }
+
+    }
 }
+

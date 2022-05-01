@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacter : Character
+namespace Prototype.Characters
 {
+    public class PlayerCharacter : Character
+    {
 
+    }
 }
+

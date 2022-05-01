@@ -3,44 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyCharacterMovement : CharacterMovement
+using Prototype.Behaviors;
+
+namespace Prototype.Characters
 {
-    NavMeshAgent agent;
-    EnemyBehavior behavior;
-
-    protected override void Awake()
+    public class EnemyCharacterMovement : CharacterMovement
     {
-        base.Awake();
-        agent = GetComponent<NavMeshAgent>();
-        behavior = GetComponent<EnemyBehavior>();
+        NavMeshAgent agent;
+        EnemyBehavior behavior;
 
-        agent.speed = moveSpeed;
-    }
-
-    public override void MoveCharacter(Vector3 direction, bool isMoving = false)
-    {
-        base.MoveCharacter(direction, isMoving);
-
-        if (!IsMovable() || IsInterrupt())
+        protected override void Awake()
         {
-            characterAnimationController.OnCharacterMove(direction, false);
-            agent.enabled = false;
-            return;
+            base.Awake();
+            agent = GetComponent<NavMeshAgent>();
+            behavior = GetComponent<EnemyBehavior>();
+
+            agent.speed = moveSpeed;
         }
 
-        agent.enabled = true;
-        characterAnimationController.OnCharacterMove(direction, isMoving);
-
-        if (!isMoving)
+        public override void MoveCharacter(Vector3 direction, bool isMoving = false)
         {
-            agent.SetDestination(transform.position);
-            characterStateMachine.SetIdleState();
-            return;
+            base.MoveCharacter(direction, isMoving);
+
+            if (!IsMovable() || IsInterrupt())
+            {
+                characterAnimationController.OnCharacterMove(direction, false);
+                agent.enabled = false;
+                return;
+            }
+
+            agent.enabled = true;
+            characterAnimationController.OnCharacterMove(direction, isMoving);
+
+            if (!isMoving)
+            {
+                agent.SetDestination(transform.position);
+                characterStateMachine.SetIdleState();
+                return;
+            }
+
+            characterAttack.ResetAttackIndex();
+            agent.SetDestination(behavior.target.transform.position);
+            characterStateMachine.SetMoveState();
+
         }
-
-        characterAttack.ResetAttackIndex();
-        agent.SetDestination(behavior.target.transform.position);
-        characterStateMachine.SetMoveState();
-
     }
 }
+

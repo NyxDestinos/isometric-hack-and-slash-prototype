@@ -2,28 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacterMovement : CharacterMovement
+namespace Prototype.Characters
 {
-    public override void MoveCharacter(Vector3 direction, bool isMoving = false)
+    public class PlayerCharacterMovement : CharacterMovement
     {
-        base.MoveCharacter(direction, isMoving);
-
-        if (!IsMovable() || IsInterrupt())
+        public override void MoveCharacter(Vector3 direction, bool isMoving = false)
         {
-            return;
+            base.MoveCharacter(direction, isMoving);
+
+            if (!IsMovable() || IsInterrupt())
+            {
+                return;
+            }
+
+            characterAnimationController.OnCharacterMove(direction, isMoving);
+
+            if (!isMoving)
+            {
+                characterStateMachine.SetIdleState();
+                return;
+            }
+
+            characterAttack.ResetAttackIndex();
+            Move(direction);
+
+            characterStateMachine.SetMoveState();
         }
-
-        characterAnimationController.OnCharacterMove(direction, isMoving);
-
-        if (!isMoving)
-        {
-            characterStateMachine.SetIdleState();
-            return;
-        }
-
-        characterAttack.ResetAttackIndex();
-        Move(direction);
-
-        characterStateMachine.SetMoveState();
     }
 }
+
