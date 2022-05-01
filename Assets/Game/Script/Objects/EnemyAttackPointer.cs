@@ -10,21 +10,28 @@ namespace Prototype.Objects
     public class EnemyAttackPointer : AttackPointer
     {
         [SerializeField] private EnemyCharacter owner;
+
+        EnemyBehavior behavior;
+
+        private void Start()
+        {
+            behavior = owner.GetComponent<EnemyBehavior>();
+        }
+
         protected override void InputRotationHandler()
         {
-            var _owner = owner.GetComponent<EnemyBehavior>();
-            if (!_owner.GetComponent<EnemyBehavior>())
+
+            if (!behavior)
             {
                 return;
             }
 
-            if (_owner.GetComponent<EnemyBehavior>().target == null)
+            if (!behavior.Target)
             {
                 return;
             }
-            var _target = _owner.target.transform;
-            transform.LookAt(new Vector3(_target.position.x, transform.position.y, _target.position.z));
-            pointer.position = transform.position + transform.forward;
+
+            LookAtTarget(behavior.TargetPosition);
 
         }
     }

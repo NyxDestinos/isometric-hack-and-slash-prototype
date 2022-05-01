@@ -19,22 +19,10 @@ namespace Prototype.Objects
         public Attack currentAttack;
         public GameObject owner;
         public List<Character> targetCharacterList;
+
         private void OnTriggerEnter(Collider other)
         {
-            Character target = null;
-
-            switch (targetType)
-            {
-                case TargetType.Player:
-                    target = other.GetComponent<PlayerCharacter>();
-                    break;
-                case TargetType.Enemy:
-                    target = other.GetComponent<EnemyCharacter>();
-                    break;
-                default:
-                    break;
-            }
-
+            Character target = GetTarget(other);
 
             if (target == null)
             {
@@ -46,19 +34,7 @@ namespace Prototype.Objects
 
         private void OnTriggerExit(Collider other)
         {
-            Character target = null;
-
-            switch (targetType)
-            {
-                case TargetType.Player:
-                    target = other.GetComponent<PlayerCharacter>();
-                    break;
-                case TargetType.Enemy:
-                    target = other.GetComponent<EnemyCharacter>();
-                    break;
-                default:
-                    break;
-            }
+            Character target = GetTarget(other);
 
             if (target == null)
             {
@@ -81,6 +57,25 @@ namespace Prototype.Objects
 
             ApplyDamage(attack, skill);
             ApplyOnHit(attack, skill);
+        }
+
+        Character GetTarget(Collider other)
+        {
+            Character target = null;
+
+            switch (targetType)
+            {
+                case TargetType.Player:
+                    target = other.GetComponent<PlayerCharacter>();
+                    break;
+                case TargetType.Enemy:
+                    target = other.GetComponent<EnemyCharacter>();
+                    break;
+                default:
+                    break;
+            }
+
+            return target;
         }
 
         void ClearNullEnemy()

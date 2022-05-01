@@ -772,10 +772,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c710035e16943b34b8c34a5a4860cbe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnPoints: {fileID: 1843999379}
-  EnemyCharacter: {fileID: 6764777586878367133, guid: dea83c3528bcd974c90d28e2575079ff, type: 3}
   enemyList: []
+  SpawnPoints: {fileID: 1843999379}
+  enemyCharacter: {fileID: 6764777586878367133, guid: dea83c3528bcd974c90d28e2575079ff, type: 3}
   maximumEnemy: 25
+  amountSpawnAtStart: 10
   currentSpawnCooldown: 0
   spawnCooldown: 2
 --- !u!1 &580841184
@@ -2635,6 +2636,10 @@ PrefabInstance:
       propertyPath: projectileSkill
       value: 
       objectReference: {fileID: 11400000, guid: e822918b931230f4faf7b26d243b34be, type: 2}
+    - target: {fileID: 5435035216431487829, guid: c5e933783f18c554f87761f3379c2172, type: 3}
+      propertyPath: ImmuneDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8547330974069745852, guid: c5e933783f18c554f87761f3379c2172, type: 3}
       propertyPath: statusDataList.Array.size
       value: 0

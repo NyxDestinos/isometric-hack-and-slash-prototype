@@ -20,9 +20,14 @@ namespace Prototype.Objects
 
             if (Physics.Raycast(ray, out hit))
             {
-                transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
-                pointer.position = transform.position + transform.forward;
+                LookAtTarget(hit.point);
             }
+        }
+
+        protected void LookAtTarget(Vector3 target)
+        {
+            transform.LookAt(new Vector3(target.x, transform.position.y, target.z));
+            pointer.position = transform.position + transform.forward;
         }
 
         public Transform Pointer

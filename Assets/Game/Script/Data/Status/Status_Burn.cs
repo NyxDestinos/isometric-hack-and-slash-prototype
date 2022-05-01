@@ -18,7 +18,7 @@ namespace Prototype.Datas
                 return;
             }
 
-            character.TakeDamage(statusData.stackAmount, statusData);
+            character.TakeDamage(statusData.StackAmount, statusData);
         }
     }
 }

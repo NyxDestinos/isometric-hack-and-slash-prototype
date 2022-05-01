@@ -20,8 +20,6 @@ namespace Prototype.Datas
 
         public virtual void OnSecondTick(Character character, StatusData status)
         {
-            status.duration -= 1;
-
             if (character.GetComponent<Health>().isDead)
             {
                 return;

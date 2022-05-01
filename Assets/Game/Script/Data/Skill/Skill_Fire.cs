@@ -25,7 +25,8 @@ namespace Prototype.Datas
         {
             base.ApplyOnDash(attacker, dashAreaOfEffect);
 
-            var targetList = WaveManager.instance.enemyList.Where(x => (attacker.transform.position - x.transform.position).sqrMagnitude < dashAreaOfEffect * dashAreaOfEffect).ToList();
+            var targetList = WaveManager.instance.enemyList;
+            targetList = targetList.Where(x => Utility.IsTwoTransformInDistance(attacker.transform, x.transform, dashAreaOfEffect)).ToList();
 
             if (targetList.Count == 0)
             {

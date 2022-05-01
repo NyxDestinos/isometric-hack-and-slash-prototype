@@ -23,9 +23,8 @@ namespace Prototype.Characters
 
         public override void MoveCharacter(Vector3 direction, bool isMoving = false)
         {
-            base.MoveCharacter(direction, isMoving);
 
-            if (!IsMovable() || IsInterrupt())
+            if (!IsAbleToMove())
             {
                 characterAnimationController.OnCharacterMove(direction, false);
                 agent.enabled = false;
@@ -38,14 +37,18 @@ namespace Prototype.Characters
             if (!isMoving)
             {
                 agent.SetDestination(transform.position);
-                characterStateMachine.SetIdleState();
+                stateMachine.SetIdleState();
                 return;
             }
 
-            characterAttack.ResetAttackIndex();
-            agent.SetDestination(behavior.target.transform.position);
-            characterStateMachine.SetMoveState();
+            Move(behavior.TargetPosition);
+        }
 
+        protected override void Move(Vector3 direction)
+        {
+            characterAttack.ResetAttackIndex();
+            agent.SetDestination(direction);
+            stateMachine.SetMoveState();
         }
     }
 }

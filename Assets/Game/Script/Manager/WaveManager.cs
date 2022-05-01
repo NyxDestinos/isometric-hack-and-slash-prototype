@@ -10,15 +10,17 @@ namespace Prototype
     {
         public static WaveManager instance;
 
-        public GameObject SpawnPoints;
-        public EnemyCharacter EnemyCharacter;
-
         public List<Character> enemyList;
-        public int maximumEnemy = 25;
 
-        public float currentSpawnCooldown = 0f;
-        public float spawnCooldown = 3f;
+        [SerializeField] private GameObject SpawnPoints;
+        [SerializeField] private EnemyCharacter enemyCharacter;
 
+
+        [SerializeField] private int maximumEnemy = 25;
+        [SerializeField] private int amountSpawnAtStart = 10;
+
+        [SerializeField] private float currentSpawnCooldown = 0f;
+        [SerializeField] private float spawnCooldown = 3f;
 
         private void Awake()
         {
@@ -29,9 +31,10 @@ namespace Prototype
 
             instance = this;
         }
+
         private void Start()
         {
-            SpawnUnit(20);
+            SpawnUnit(amountSpawnAtStart);
         }
 
         private void Update()
@@ -56,7 +59,7 @@ namespace Prototype
                 }
                 Transform spawnPoint = SpawnPoints.transform.GetChild(Random.Range(0, SpawnPoints.transform.childCount - 1));
 
-                EnemyCharacter enemy = Instantiate(EnemyCharacter.gameObject, spawnPoint.position, Quaternion.identity).GetComponent<EnemyCharacter>();
+                EnemyCharacter enemy = Instantiate(enemyCharacter.gameObject, spawnPoint.position, Quaternion.identity).GetComponent<EnemyCharacter>();
                 enemy.SetWaveManager(this);
                 enemyList.Add(enemy);
             }

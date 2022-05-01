@@ -10,6 +10,10 @@ public static class Utility
         Vector3 adjustedDirection = isometricInputAdjustment.MultiplyPoint3x4(direction);
 
         return adjustedDirection;
+    }
 
+    public static bool IsTwoTransformInDistance(Transform object_A, Transform object_B, float dist)
+    {
+        return (object_A.position - object_B.position).sqrMagnitude < dist * dist;
     }
 }

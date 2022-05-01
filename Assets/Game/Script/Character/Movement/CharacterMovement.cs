@@ -6,7 +6,7 @@ using Prototype.Datas;
 
 namespace Prototype.Characters
 {
-    public class CharacterMovement : MonoBehaviour
+    public abstract class CharacterMovement : MonoBehaviour
     {
 
         [SerializeField] protected float moveSpeed = 4;
@@ -18,16 +18,17 @@ namespace Prototype.Characters
 
         [SerializeField] protected CharacterAnimationController characterAnimationController;
         protected CharacterAttack characterAttack;
-        protected CharacterStateMachine characterStateMachine;
+        protected CharacterStateMachine stateMachine;
         protected Rigidbody characterRigidbody;
 
-        Vector3 DashDirection;
+        private const float Y_AXIS_ANGLE = 45f;
+        Vector3 dashDirection;
 
         protected virtual void Awake()
         {
             characterRigidbody = GetComponent<Rigidbody>();
             characterAttack = GetComponent<CharacterAttack>();
-            characterStateMachine = GetComponent<CharacterStateMachine>();
+            stateMachine = GetComponent<CharacterStateMachine>();
 
         }
 
@@ -36,68 +37,52 @@ namespace Prototype.Characters
             UpdateDash();
         }
 
-        public virtual void MoveCharacter(Vector3 direction, bool isMoving = false)
+        public virtual void Attack()
         {
-
-        }
-
-        public void Attack()
-        {
-            if (isAbleToAttack)
+            if (!IsAbleToAttack())
             {
                 return;
             }
 
-            characterStateMachine.SetAttackState();
+            stateMachine.SetAttackState();
             characterAnimationController.OnCharacterAttack(true);
             MoveForce();
         }
 
-        public void Shoot()
+        public virtual void Shoot()
         {
-            if (IsDash() || IsInterrupt() || characterAttack.IsOnAttackCooldown())
+            if (!IsAbleToAttack())
             {
                 return;
             }
 
-            characterStateMachine.SetAttackState();
+            stateMachine.SetAttackState();
             characterAnimationController.OnCharacterShoot(true);
         }
 
         public void Dash(Vector3 direction, bool isMoving = false)
         {
-            if (IsDash() || !IsMovable() || IsInterrupt() || currentDashCooldown >= 0f)
+            if (!IsAbleToDash())
             {
                 return;
             }
 
             characterAttack.DashEffect();
-            characterStateMachine.SetDashState();
-            DashDirection = direction;
+            stateMachine.SetDashState();
+            dashDirection = direction;
             characterAnimationController.OnCharacterDash(direction, true);
         }
 
         void UpdateDash()
         {
 
-            if (IsDash() && currentDashTime < dashTime)
+            if (IsDashing())
             {
-                Vector3 adjustedDirection = Utility.IsometricInputAdjustment(DashDirection, Quaternion.Euler(0, 45, 0));
-
-                characterRigidbody.MovePosition(characterRigidbody.position + adjustedDirection * dashSpeed * Time.deltaTime);
-
-                characterAnimationController.OnCharacterDash(DashDirection, true);
-                currentDashCooldown = 0f;
-                currentDashTime += Time.deltaTime;
                 return;
             }
 
-            if (IsDash() && currentDashTime >= dashTime)
+            if (IsDashFinish())
             {
-                characterStateMachine.SetIdleState();
-                currentDashTime = 0f;
-                currentDashCooldown = dashCooldown;
-                characterAnimationController.OnCharacterDash(DashDirection, false);
                 return;
             }
 
@@ -106,27 +91,23 @@ namespace Prototype.Characters
                 currentDashCooldown -= Time.deltaTime;
                 return;
             }
-
         }
 
-        protected void Move(Vector3 direction)
-        {
-            Vector3 adjustedDirection = Utility.IsometricInputAdjustment(direction, Quaternion.Euler(0, 45, 0));
-            characterRigidbody.MovePosition(characterRigidbody.position + adjustedDirection * moveSpeed * Time.deltaTime);
-        }
-
+        
         private void MoveForce()
         {
             var direction = characterAttack.pointerForwardPosition;
             Attack attack = characterAttack.currentAttack;
 
-            Vector3 adjustedDirection = Utility.IsometricInputAdjustment(direction, Quaternion.Euler(0, 45, 0));
+            Vector3 adjustedDirection = Utility.IsometricInputAdjustment(direction, Quaternion.Euler(0, Y_AXIS_ANGLE, 0));
             adjustedDirection *= attack.ForwardForce;
 
             characterRigidbody.MovePosition(characterRigidbody.position + adjustedDirection * moveSpeed * Time.deltaTime);
         }
 
+        public abstract void MoveCharacter(Vector3 direction, bool isMoving = false);
 
+        protected abstract void Move(Vector3 direction);
 
         public float MoveSpeed
         {
@@ -136,27 +117,51 @@ namespace Prototype.Characters
             }
         }
 
-        protected bool isAbleToAttack
+        protected bool IsDashing()
         {
-            get
+            if (stateMachine.IsDashState() && currentDashTime < dashTime)
             {
-                return IsDash() || IsInterrupt() || characterAttack.IsOnAttackCooldown();
+                Vector3 adjustedDirection = Utility.IsometricInputAdjustment(dashDirection, Quaternion.Euler(0, Y_AXIS_ANGLE, 0));
+
+                characterRigidbody.MovePosition(characterRigidbody.position + adjustedDirection * dashSpeed * Time.deltaTime);
+
+                characterAnimationController.OnCharacterDash(dashDirection, true);
+                currentDashCooldown = 0f;
+                currentDashTime += Time.deltaTime;
+                return true;
             }
+
+            characterAnimationController.OnCharacterDash(dashDirection, false);
+            return false;
         }
 
-        protected bool IsMovable()
+        protected bool IsDashFinish()
         {
-            return characterStateMachine.movementState == CharacterStateMachine.MovementState.Idle || characterStateMachine.movementState == CharacterStateMachine.MovementState.Move;
+            if (stateMachine.IsDashState() && currentDashTime >= dashTime)
+            {
+                stateMachine.SetIdleState();
+                currentDashTime = 0f;
+                currentDashCooldown = dashCooldown;
+                characterAnimationController.OnCharacterDash(dashDirection, false);
+                return true;
+            }
+
+            return false;
         }
 
-        protected bool IsDash()
+        protected bool IsAbleToAttack()
         {
-            return characterStateMachine.movementState == CharacterStateMachine.MovementState.Dash;
+            return !stateMachine.IsDashState() && !stateMachine.IsInterruptState() && !characterAttack.IsOnAttackCooldown();
         }
 
-        protected bool IsInterrupt()
+        protected bool IsAbleToDash()
         {
-            return characterStateMachine.movementState == CharacterStateMachine.MovementState.Interrupt;
+            return !stateMachine.IsDashState() && !stateMachine.IsInterruptState() && !(currentDashCooldown >= 0f);
+        }
+
+        protected bool IsAbleToMove()
+        {
+            return stateMachine.IsIdleState() || stateMachine.IsMoveState();
         }
 
 

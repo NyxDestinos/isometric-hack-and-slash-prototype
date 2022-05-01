@@ -15,20 +15,7 @@ namespace Prototype.Characters
 
         private void Update()
         {
-            if (currentTimeTick < timeTick)
-            {
-                currentTimeTick += Time.deltaTime;
-                return;
-            }
-
-            for (int i = 0; i < statusDataList.Count; i++)
-            {
-                StatusData statusData = statusDataList[i];
-                statusData.status.OnSecondTick(GetComponent<Character>(), statusData);
-            }
-
-            statusDataList = statusDataList.Where(x => x.duration >= 0).ToList();
-            currentTimeTick = 0f;
+            UpdateTimeTick();
         }
 
         public void ApplyStatusData(List<StatusData> statusDatas)
@@ -50,20 +37,37 @@ namespace Prototype.Characters
             for (int i = 0; i < statusDataList.Count; i++)
             {
                 StatusData s = statusDataList[i];
-                s.status.OnAddStatus(s, GetComponent<Character>(), statusClone);
+                s.OnAddStatus(statusClone);
             }
 
-            int index = statusDataList.FindIndex(o => o.status == statusClone.status);
+            int index = statusDataList.FindIndex(o => o.Equals(statusClone));
             if (index >= 0)
             {
                 statusDataList[index].Add(statusClone);
-                return statusClone.stackAmount;
+                return statusClone.StackAmount;
             }
 
             statusDataList.Add(statusClone);
 
+            return statusClone.StackAmount;
+        }
 
-            return statusClone.stackAmount;
+        void UpdateTimeTick()
+        {
+            if (currentTimeTick < timeTick)
+            {
+                currentTimeTick += Time.deltaTime;
+                return;
+            }
+
+            for (int i = 0; i < statusDataList.Count; i++)
+            {
+                StatusData statusData = statusDataList[i];
+                statusData.OnSecondTick();
+            }
+
+            statusDataList = statusDataList.Where(x => x.Duration >= 0).ToList();
+            currentTimeTick = 0f;
         }
     }
 }

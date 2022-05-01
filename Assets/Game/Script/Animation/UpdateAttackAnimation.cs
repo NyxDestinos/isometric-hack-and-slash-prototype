@@ -9,11 +9,10 @@ namespace Prototype.Animations
     public class UpdateAttackAnimation : StateMachineBehaviour
     {
 
-        [SerializeField] protected Animator animator;
+        protected Animator animator;
         protected CharacterAnimationController characterAnimationController;
 
         protected Character character;
-        protected CharacterAttack characterAttack;
         protected CharacterMovement characterMovement;
         protected CharacterStateMachine characterStateMachine;
         [SerializeField] protected int nextAnimationIndex;
@@ -22,7 +21,7 @@ namespace Prototype.Animations
         {
             Initialize(animator);
 
-            characterAttack.Attack();
+            character.Attack();
         }
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -51,9 +50,8 @@ namespace Prototype.Animations
             this.animator = animator;
             characterAnimationController = animator.GetComponent<CharacterAnimationController>();
             character = characterAnimationController.Character;
-            characterAttack = character.GetComponent<CharacterAttack>();
-            characterMovement = character.GetComponent<CharacterMovement>();
-            characterStateMachine = character.GetComponent<CharacterStateMachine>();
+            characterMovement = character.CharacterMovement;
+            characterStateMachine = character.CharacterStateMachine;
         }
 
         void ChangeAnimation()

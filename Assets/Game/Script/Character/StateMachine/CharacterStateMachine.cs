@@ -35,4 +35,24 @@ public class CharacterStateMachine : MonoBehaviour
     {
         movementState = MovementState.Interrupt;
     }
+
+    public bool IsMoveState()
+    {
+        return movementState == MovementState.Move;
+    }
+
+    public bool IsIdleState()
+    {
+        return movementState == MovementState.Idle;
+    }
+
+    public bool IsDashState()
+    {
+        return movementState == MovementState.Dash;
+    }
+
+    public bool IsInterruptState()
+    {
+        return movementState == MovementState.Interrupt;
+    }
 }

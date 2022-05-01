@@ -16,11 +16,6 @@ namespace Prototype
 
         }
 
-        void Start()
-        {
-
-        }
-
         void Update()
         {
             GetPlayerMovement();
@@ -31,8 +26,6 @@ namespace Prototype
 
         private bool GetPlayerMovement()
         {
-
-
             if (GetPlayerDirection().magnitude <= 0.1f)
             {
                 characterMovement.MoveCharacter(GetPlayerDirection());

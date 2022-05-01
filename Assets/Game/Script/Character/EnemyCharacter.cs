@@ -9,13 +9,17 @@ namespace Prototype.Characters
     public class EnemyCharacter : Character
     {
         [SerializeField] private StatusBar statusBar;
-        //private CapsuleCollider ;
+
         WaveManager waveManager;
 
         protected override void Start()
         {
-            base.Start();
             statusBar.AttachCharacter(this);
+        }
+
+        protected override void Update()
+        {
+
         }
 
         public override void TakeDamage(Attack attack, GameObject attacker)
@@ -41,8 +45,6 @@ namespace Prototype.Characters
 
         public override void Dead()
         {
-            base.Dead();
-
             waveManager.RemoveDeadCharacter(this);
         }
 
@@ -58,6 +60,8 @@ namespace Prototype.Characters
                 Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
             }
         }
+
+
     }
 }
 

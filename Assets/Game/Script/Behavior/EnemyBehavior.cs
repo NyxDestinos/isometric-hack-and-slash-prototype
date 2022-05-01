@@ -9,11 +9,11 @@ namespace Prototype.Behaviors
 {
     public class EnemyBehavior : MonoBehaviour
     {
-        public NavMeshAgent agent;
-        public Character target;
+        private NavMeshAgent agent;
+        private Character target;
 
         EnemyCharacterMovement characterMovement;
-        // Start is called before the first frame update
+
         void Start()
         {
             agent = GetComponent<NavMeshAgent>();
@@ -27,7 +27,6 @@ namespace Prototype.Behaviors
             target = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (target == null)
@@ -46,6 +45,16 @@ namespace Prototype.Behaviors
                 characterMovement.Attack();
             }
 
+        }
+
+        public Character Target
+        {
+            get { return target; }
+        }
+
+        public Vector3 TargetPosition
+        {
+            get { return target.transform.position; }
         }
 
     }

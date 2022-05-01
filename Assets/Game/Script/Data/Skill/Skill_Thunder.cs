@@ -19,47 +19,29 @@ namespace Prototype.Datas
 
         public override void ApplyOnAttackGlobal(Character attacker, List<Character> targetList)
         {
-            targetList = targetList.Where(x => (attacker.transform.position - x.transform.position).sqrMagnitude < areaOfEffect * areaOfEffect).ToList();
+            targetList = targetList.Where(x => Utility.IsTwoTransformInDistance(attacker.transform, x.transform, areaOfEffect)).ToList();
 
-            if (targetList.Count == 0)
-            {
-                return;
-            }
-
-            for (int i = 0; i < targetCount; i++)
-            {
-                Character target = targetList[Random.Range(0, targetList.Count - 1)];
-                Transform targetSprite = target.animationController.transform;
-                Vector3 spawnPosition = new Vector3(targetSprite.transform.position.x, visualEffect.transform.position.y, targetSprite.transform.position.z);
-                VisualEffect _visualEffect = Instantiate(visualEffect.gameObject, spawnPosition, visualEffect.transform.rotation).GetComponent<VisualEffect>();
-                target.TakeDamage(damage);
-            }
+            SpawnThunderStrike(targetList);
         }
 
         public override void ApplyOnProjectileHitGlobal(Projectile projectile, List<Character> targetList)
         {
-            targetList = targetList.Where(x => (projectile.transform.position - x.transform.position).sqrMagnitude < areaOfEffect * areaOfEffect).ToList();
+            targetList = targetList.Where(x => Utility.IsTwoTransformInDistance(projectile.transform, x.transform, areaOfEffect)).ToList();
 
-            if (targetList.Count == 0)
-            {
-                return;
-            }
-
-            for (int i = 0; i < targetCount; i++)
-            {
-                Character target = targetList[Random.Range(0, targetList.Count - 1)];
-                Transform targetSprite = target.animationController.transform;
-                Vector3 spawnPosition = new Vector3(targetSprite.transform.position.x, visualEffect.transform.position.y, targetSprite.transform.position.z);
-                VisualEffect _visualEffect = Instantiate(visualEffect.gameObject, spawnPosition, visualEffect.transform.rotation).GetComponent<VisualEffect>();
-                target.TakeDamage(damage);
-            }
+            SpawnThunderStrike(targetList);
         }
 
         public override void ApplyOnDash(Character attacker, float dashAreaOfEffect)
         {
             base.ApplyOnDash(attacker, dashAreaOfEffect);
-            var targetList = WaveManager.instance.enemyList.Where(x => (attacker.transform.position - x.transform.position).sqrMagnitude < dashAreaOfEffect * dashAreaOfEffect).ToList();
+            var targetList = WaveManager.instance.enemyList;
+            targetList = targetList.Where(x => Utility.IsTwoTransformInDistance(attacker.transform, x.transform, dashAreaOfEffect)).ToList();
 
+            SpawnThunderStrike(targetList);
+        }
+
+        void SpawnThunderStrike(List<Character> targetList)
+        {
             if (targetList.Count == 0)
             {
                 return;
@@ -68,12 +50,11 @@ namespace Prototype.Datas
             for (int i = 0; i < targetCount; i++)
             {
                 Character target = targetList[Random.Range(0, targetList.Count - 1)];
-                Transform targetSprite = target.animationController.transform;
+                Transform targetSprite = target.SpriteTransform;
                 Vector3 spawnPosition = new Vector3(targetSprite.transform.position.x, visualEffect.transform.position.y, targetSprite.transform.position.z);
                 VisualEffect _visualEffect = Instantiate(visualEffect.gameObject, spawnPosition, visualEffect.transform.rotation).GetComponent<VisualEffect>();
                 target.TakeDamage(damage);
             }
-
         }
     }
 }

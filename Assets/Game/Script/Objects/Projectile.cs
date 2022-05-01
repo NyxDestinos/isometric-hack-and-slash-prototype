@@ -53,8 +53,6 @@ namespace Prototype.Objects
         {
             Character target = null;
 
-            Debug.Log(collision.gameObject.tag);
-
             switch (targetType)
             {
                 case TargetType.Player:

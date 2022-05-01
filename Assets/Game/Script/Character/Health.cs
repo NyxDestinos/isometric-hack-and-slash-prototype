@@ -12,13 +12,16 @@ namespace Prototype.Characters
         [SerializeField] private int currentHealth;
         [SerializeField] private int maxHealth;
 
-        private float currentKnockbackCooldown;
+        [SerializeField] private float currentKnockbackCooldown;
         [SerializeField] private float knockbackCooldown;
+
+        [SerializeField] private float currentImmuneDuration;
+        [SerializeField] private float ImmuneDuration;
 
         bool isKnock = false;
         Character character;
         CharacterStateMachine characterStateMachine;
-        CharacterAnimationController characterAnimationController;
+        [SerializeField]CharacterAnimationController characterAnimationController;
         Rigidbody rb;
 
         [SerializeField] Popup popup;
@@ -29,11 +32,76 @@ namespace Prototype.Characters
 
             character = GetComponent<Character>();
             characterStateMachine = GetComponent<CharacterStateMachine>();
-            characterAnimationController = character.animationController;
+            characterAnimationController = character.CharacterAnimationController;
         }
 
 
         void Update()
+        {
+            UpdateKnockback();
+            UpdateImmune();
+        }
+
+        public void TakeDamage(Attack attack, GameObject attacker)
+        {
+            if (characterStateMachine.IsDashState() || IsImmune())
+            {
+                return;
+            }
+
+            CreatePopupDamage(attack.Damage);
+            CalculateDamage(attack.Damage);
+            Knockback(attack, attacker);
+        }
+
+        public virtual void TakeDamage(int damage, StatusData statusData)
+        {
+            CreatePopupDamage(damage, 2f, statusData.Status.statusColor);
+            CalculateDamage(damage);
+        }
+
+        public virtual void TakeDamage(int damage)
+        {
+            CreatePopupDamage(damage, 2f);
+            CalculateDamage(damage);
+        }
+
+        void CalculateDamage(int damage)
+        {
+            CurrentHealth -= damage;
+
+            if (isDead)
+            {
+                character.Dead();
+                Destroy(gameObject);
+            }
+        }
+
+        void CreatePopupDamage(int damage, float textSize = 3, Color? fontColor = null)
+        {
+            float randomXSpawnpoint = Random.Range(-0.3f, 0.3f);
+            float randomYSpawnpoint = Random.Range(-0.3f, 0.3f);
+            float zSpawnPoint = 0.1f;
+            Vector3 randomPositionThreshold = new Vector3(randomXSpawnpoint, randomYSpawnpoint, zSpawnPoint);
+
+            GameObject dmgPop = Instantiate(popup.gameObject, transform.position + randomPositionThreshold, popup.transform.rotation);
+            dmgPop.GetComponent<Popup>().SetDamageText(damage, textSize, fontColor);
+        }
+
+        void Knockback(Attack attack, GameObject attacker)
+        {
+            Vector3 difference = gameObject.transform.position - attacker.transform.position;
+            Vector3 finalDiff = difference.normalized * attack.KnockbackForce * rb.mass;
+            rb.AddForce(finalDiff, ForceMode.Impulse);
+
+            characterStateMachine.SetInterruptState();
+            characterAnimationController.OnCharacterInterrupt(difference, true);
+            currentImmuneDuration = ImmuneDuration;
+            currentKnockbackCooldown = knockbackCooldown;
+            isKnock = true;
+        }
+
+        void UpdateKnockback()
         {
             if (currentKnockbackCooldown >= 0f && isKnock)
             {
@@ -50,67 +118,20 @@ namespace Prototype.Characters
             }
 
             rb.velocity = new Vector3();
-
         }
 
-        public void TakeDamage(Attack attack, GameObject attacker)
+        void UpdateImmune()
         {
-            if (characterStateMachine.movementState == CharacterStateMachine.MovementState.Dash)
+            if (IsImmune())
             {
+                currentImmuneDuration -= Time.deltaTime;
                 return;
             }
-
-            GameObject dmgPop = Instantiate(popup.gameObject, transform.position + new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(1.3f, 1.5f), 0.1f), popup.transform.rotation);
-            dmgPop.GetComponent<Popup>().SetDamageText(attack.Damage);
-
-            CurrentHealth -= attack.Damage;
-            Knockback(attack, attacker);
-
-            if (isDead)
-            {
-                character.Dead();
-                Destroy(gameObject);
-            }
         }
 
-        public virtual void TakeDamage(int damage, StatusData statusData)
+        bool IsImmune()
         {
-            CurrentHealth -= damage;
-
-            GameObject dmgPop = Instantiate(popup.gameObject, transform.position + new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(1.3f, 1.5f), 0.1f), popup.transform.rotation);
-            dmgPop.GetComponent<Popup>().SetDamageText(damage, 2, statusData.status.statusColor);
-
-            if (isDead)
-            {
-                character.Dead();
-                Destroy(gameObject);
-            }
-        }
-
-        public virtual void TakeDamage(int damage)
-        {
-            CurrentHealth -= damage;
-
-            GameObject dmgPop = Instantiate(popup.gameObject, transform.position + new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(1.3f, 1.5f), 0.1f), popup.transform.rotation);
-            dmgPop.GetComponent<Popup>().SetDamageText(damage, 2);
-
-            if (isDead)
-            {
-                character.Dead();
-                Destroy(gameObject);
-            }
-        }
-
-        public void Knockback(Attack attack, GameObject attacker)
-        {
-            Vector3 difference = gameObject.transform.position - attacker.transform.position;
-            Vector3 finalDiff = difference.normalized * attack.KnockbackForce * rb.mass;
-            rb.AddForce(finalDiff, ForceMode.Impulse);
-
-            characterStateMachine.SetInterruptState();
-            characterAnimationController.OnCharacterInterrupt(difference, true);
-            currentKnockbackCooldown = knockbackCooldown;
-            isKnock = true;
+            return currentImmuneDuration > 0f;
         }
 
         public bool isDead

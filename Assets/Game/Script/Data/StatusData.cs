@@ -9,9 +9,9 @@ namespace Prototype.Datas
     [System.Serializable]
     public class StatusData
     {
-        public Status status;
-        public int duration;
-        public int stackAmount;
+        [SerializeField] private Status status;
+        [SerializeField] private int duration;
+        [SerializeField] private int stackAmount;
 
         [HideInInspector] public Character ownerCharacter;
 
@@ -33,9 +33,40 @@ namespace Prototype.Datas
             stackAmount = _status.isStackOverride ? _statusData.stackAmount : stackAmount;
         }
 
+        public void OnAddStatus(StatusData applyStatusData)
+        {
+            status.OnAddStatus(this, ownerCharacter, applyStatusData);
+        }
+
+        public void OnSecondTick()
+        {
+            status.OnSecondTick(ownerCharacter, this);
+            duration -= 1;
+        }
+
         public StatusData Clone()
         {
             return (StatusData)this.MemberwiseClone();
+        }
+
+        public bool Equals(StatusData statusDataToCompare)
+        {
+            return Status == statusDataToCompare.Status;
+        }
+
+        public Status Status
+        {
+            get { return status; }
+        }
+
+        public int Duration
+        {
+            get { return duration; }
+        }
+
+        public int StackAmount
+        {
+            get { return stackAmount; }
         }
     }
 }

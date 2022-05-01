@@ -10,16 +10,16 @@ namespace Prototype.Characters
         SpriteRenderer spriteRenderer;
         Animator animator;
 
+        private const float Y_AXIS_ANGLE = -45f;
+
         CharacterAttack characterAttack;
-
-
 
         void Start()
         {
             character = transform.parent.GetComponent<Character>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
-            characterAttack = character.GetComponent<CharacterAttack>();
+            characterAttack = character.CharacterAttack;
         }
 
         public void OnCharacterMove(Vector3 direction, bool isMoving = false)
@@ -75,9 +75,10 @@ namespace Prototype.Characters
             spriteRenderer.flipX = direction.x < 0;
         }
 
+        
         private void SpriteAttackDirection(Vector3 target)
         {
-            Vector3 adjustedDirection = Utility.IsometricInputAdjustment(target, Quaternion.Euler(0, -45, 0));
+            Vector3 adjustedDirection = Utility.IsometricInputAdjustment(target, Quaternion.Euler(0, Y_AXIS_ANGLE, 0));
 
             spriteRenderer.flipX = adjustedDirection.x < 0;
         }
