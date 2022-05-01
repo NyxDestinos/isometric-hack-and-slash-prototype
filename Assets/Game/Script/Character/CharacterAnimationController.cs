@@ -14,11 +14,15 @@ namespace Prototype.Characters
 
         CharacterAttack characterAttack;
 
+        private void Awake()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            animator = GetComponent<Animator>();
+        }
+
         void Start()
         {
             character = transform.parent.GetComponent<Character>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            animator = GetComponent<Animator>();
             characterAttack = character.CharacterAttack;
         }
 

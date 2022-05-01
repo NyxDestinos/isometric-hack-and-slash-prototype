@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Prototype.Characters;
+using System;
 
 namespace Prototype
 {
     public class PlayerController : MonoBehaviour
     {
         CharacterMovement characterMovement;
+        CharacterSkill characterSkill;
 
         void Awake()
         {
             characterMovement = GetComponent<CharacterMovement>();
+            characterSkill = GetComponent<CharacterSkill>();
 
         }
 
@@ -21,6 +24,7 @@ namespace Prototype
             GetPlayerMovement();
             GetPlayerAttack();
             GetPlayerDash();
+            GetPlayerSwapSkill();
 
         }
 
@@ -50,7 +54,7 @@ namespace Prototype
             }
         }
 
-        public void GetPlayerDash()
+        private void GetPlayerDash()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -68,6 +72,24 @@ namespace Prototype
             return direction;
         }
 
+
+        private void GetPlayerSwapSkill()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                characterSkill.SwapAttackSkill();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                characterSkill.SwapProjectileSkill();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                characterSkill.SwapDashSkill();
+            }
+        }
 
     }
 }

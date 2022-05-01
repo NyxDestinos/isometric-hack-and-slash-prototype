@@ -12,76 +12,54 @@ i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\gam
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\
 ++Character
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\
-++AttackData
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackdata\
-++CharacterAnimation
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characteranimation\
-++Movement
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\
-++StateMachine
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\statemachine\
-++AttackHitbox.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackhitbox.cs
-++Character.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\character.cs
-++CharacterAnimationController.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characteranimationcontroller.cs
-++CharacterAttack.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characterattack.cs
-++CharacterCollideAttack.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\charactercollideattack.cs
-++EnemyBehavior.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\enemybehavior.cs
-++EnemyCharacter.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\enemycharacter.cs
-++Health.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\health.cs
-++PlayerCharacter.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\playercharacter.cs
 ++VFX
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\vfx\
 ++AttackPointer.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\attackpointer.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\objects\attackpointer.cs
 ++CharacterSkill.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\characterskill.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characterskill.cs
 ++EnemyAttackPointer.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\enemyattackpointer.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\objects\enemyattackpointer.cs
 ++PlayerController.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\playercontroller.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\manager\playercontroller.cs
 ++Popup.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\popup.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\objects\popup.cs
 ++Skill.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\skill.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\data\skill\skill.cs
 ++Skill_Fire.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\skill_fire.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\data\skill\skill_fire.cs
 ++Skill_Thunder.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\skill_thunder.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\data\skill\skill_thunder.cs
 ++Status.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\status.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\data\status\status.cs
 ++Status_Burn.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\status_burn.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\data\status\status_burn.cs
 ++StatusContainer.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\statuscontainer.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\statuscontainer.cs
 ++StatusData.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\statusdata.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\data\statusdata.cs
 ++Utility.cs
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\utility.cs
 ++TextMesh Pro
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\
 ++HealthBar.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\healthbar.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\statusbar\healthbar.cs
 ++Obstable.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\obstable.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\objects\obstable.cs
+++OnDashAnimation.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\animation\ondashanimation.cs
 ++OnShootAnimationEnd.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\onshootanimationend.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\animation\onshootanimationend.cs
 ++OnVisualEffectEnd.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\onvisualeffectend.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\animation\onvisualeffectend.cs
+++PlayerUI.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\ui\playerui.cs
 ++Projectile.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\projectile.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\objects\projectile.cs
 ++StatusBar.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\statusbar.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\statusbar\statusbar.cs
 ++WaveManager.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\wavemanager.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\manager\wavemanager.cs
 ++Cinemachine
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
 ++com.unity.cinemachine.editor
@@ -512,22 +490,30 @@ i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
 ++UnityEngine.XRModule
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:
-++Attack.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackdata\attack.cs
-++AttackData.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackdata\attackdata.cs
-++OnAnimationEnd.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characteranimation\onanimationend.cs
-++UpdateAttackAnimation.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characteranimation\updateattackanimation.cs
-++CharacterMovement.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\charactermovement.cs
-++EnemyCharacterMovement.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\enemycharactermovement.cs
-++PlayerCharacterMovement.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\playercharactermovement.cs
-++CharacterStateMachine.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\statemachine\characterstatemachine.cs
+++AttackData
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackdata\
+++CharacterAnimation
+++Movement
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\
+++StateMachine
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\statemachine\
+++AttackHitbox.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\objects\attackhitbox.cs
+++Character.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\character.cs
+++CharacterAnimationController.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characteranimationcontroller.cs
+++CharacterAttack.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\characterattack.cs
+++CharacterCollideAttack.cs
+++EnemyBehavior.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\behavior\enemybehavior.cs
+++EnemyCharacter.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\enemycharacter.cs
+++Health.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\health.cs
+++PlayerCharacter.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\playercharacter.cs
 ++VisualEffect.cs
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\vfx\visualeffect.cs
 ++Fonts
@@ -538,6 +524,22 @@ i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\tex
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\shaders\
 ++Sprites
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\sprites\
+++Attack.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackdata\attack.cs
+++AttackData.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\attackdata\attackdata.cs
+++OnAttackAnimationEnd.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\animation\onattackanimationend.cs
+++UpdateAttackAnimation.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\animation\updateattackanimation.cs
+++CharacterMovement.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\charactermovement.cs
+++EnemyCharacterMovement.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\enemycharactermovement.cs
+++PlayerCharacterMovement.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\movement\playercharactermovement.cs
+++CharacterStateMachine.cs
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\statemachine\characterstatemachine.cs
 ++LiberationSans - OFL.txt
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\fonts\liberationsans - ofl.txt
 ++LineBreaking Following Characters.txt
@@ -582,8 +584,21 @@ i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\tex
 i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\textmesh pro\sprites\emojione attribution.txt
 ++Assembly-CSharp (unloaded)
 ++Solution 'Hades Clone' ‎(0 of 1 project)
-++PlayerUI.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\playerui.cs
-++OnDash.cs
-++OnDashAnimation.cs
-i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\ondashanimation.cs
+++Objects
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\objects\
+++Animation
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\animation\
+++Behavior
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\behavior\
+++Data
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\data\
+++Manager
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\manager\
+++Skill
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\data\skill\
+++Status
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\data\status\
+++StatusBar
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\character\statusbar\
+++UI
+i:{d0a472df-69b2-68fb-158a-bc0da3b34918}:d:\unity project\hades clone\assets\game\script\ui\

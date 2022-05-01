@@ -146,6 +146,7 @@ MonoBehaviour:
   attackData: {fileID: 11400000, guid: f610456af7031c94eb7ab21c0194b990, type: 2}
   characterSkill: {fileID: 3760339972122411520}
   projectile: {fileID: 4825782895227351339, guid: 63dfa688c8b2964468202d8fe1813c2d, type: 3}
+  DashAreaOfEffect: 2
   attackCooldown: 0.5
   currentAttackCooldown: 0
 --- !u!114 &5435035216431487829
@@ -162,7 +163,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+  currentKnockbackCooldown: 0
   knockbackCooldown: 0.4
+  currentImmuneDuration: 0
+  ImmuneDuration: 0
+  characterAnimationController: {fileID: 0}
   popup: {fileID: 5150977959929374846, guid: f30c663b578d62b44a1343bd83391b02, type: 3}
 --- !u!114 &8547330974069745852
 MonoBehaviour:
@@ -195,9 +200,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279f0dfdb1dd6694ba4f23a436dd5579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSkill: {fileID: 0}
-  projectileSkill: {fileID: 0}
-  dashSkill: {fileID: 0}
+  skillList:
+  - {fileID: 11400000, guid: e822918b931230f4faf7b26d243b34be, type: 2}
+  - {fileID: 11400000, guid: dc19f8e5c519f9a49a753faa676868bf, type: 2}
+  attackSkillIndex: 0
+  projectileSkillIndex: 0
+  dashSkillIndex: 0
 --- !u!1 &2389439907752568147
 GameObject:
   m_ObjectHideFlags: 0

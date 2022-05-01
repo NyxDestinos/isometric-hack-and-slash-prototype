@@ -8,24 +8,68 @@ namespace Prototype.Characters
 {
     public class CharacterSkill : MonoBehaviour
     {
-        [SerializeField] private Skill attackSkill;
-        [SerializeField] private Skill projectileSkill;
-        [SerializeField] private Skill dashSkill;
+        [SerializeField] private List<Skill> skillList = new List<Skill>();
+        [SerializeField] private int attackSkillIndex = 0;
+        [SerializeField] private int projectileSkillIndex = 0;
+        [SerializeField] private int dashSkillIndex = 0;
+
+        public void SwapAttackSkill()
+        {
+            attackSkillIndex += 1;
+            attackSkillIndex %= skillList.Count;
+        }
+
+        public void SwapProjectileSkill()
+        {
+            projectileSkillIndex += 1;
+            projectileSkillIndex %= skillList.Count;
+        }
+
+        public void SwapDashSkill()
+        {
+            dashSkillIndex += 1;
+            dashSkillIndex %= skillList.Count;
+        }
 
         public Skill AttackSkill
         {
-            get { return attackSkill; }
+            get 
+            { 
+                if (skillList.Count == 0)
+                {
+                    return null;
+                }
+
+                return skillList[attackSkillIndex]; 
+            }
         }
 
         public Skill ProjectileSkill
         {
-            get { return projectileSkill; }
+            get 
+            {
+                if (skillList.Count == 0)
+                {
+                    return null;
+                }
+
+                return skillList[projectileSkillIndex]; 
+            }
         }
 
         public Skill DashSkill
         {
-            get { return dashSkill; }
+            get 
+            {
+                if (skillList.Count == 0)
+                {
+                    return null;
+                }
+                
+                return skillList[dashSkillIndex]; 
+            }
         }
+
     }
 }
 

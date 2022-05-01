@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Prototype.UI;
+
 namespace Prototype.Characters
 {
     public class PlayerCharacter : Character
@@ -18,7 +20,7 @@ namespace Prototype.Characters
 
         public override void Dead()
         {
-
+            PlayerUI.instance.GameOver();
         }
     }
 }
